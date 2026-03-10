@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Felix Marubi | CEO & Founder at Marubi-Labs</title>
+    <meta name="title" content="Felix Marubi | CEO & Founder at Marubi-Labs">
+    <meta name="description" content="CEO of Marubi-Labs, building Mindbridge and Mzuri Organics. Software Engineering student at Kirinyaga University creating innovative solutions for African communities.">
+    <meta name="keywords" content="Felix Marubi, Marubi-Labs, CEO, Software Engineer, Mindbridge, Mzuri Organics, Kirinyaga University, Web Developer, Kenya">
+    <meta name="author" content="Felix Marubi">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marubilabs.com/">
+    <meta property="og:title" content="Felix Marubi | CEO & Founder at Marubi-Labs">
+    <meta property="og:description" content="Building Mindbridge, Mzuri Organics, and innovative solutions for African communities.">
+    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://marubilabs.com/">
+    <meta property="twitter:title" content="Felix Marubi | CEO & Founder at Marubi-Labs">
+    <meta property="twitter:description" content="Building Mindbridge, Mzuri Organics, and innovative solutions for African communities.">
+    <meta property="twitter:image" content="images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/pages/home.css">
+    <style>
+        /* Brand Colors - Quick Fix */
+        :root {
+            --marubi-ember: #cc2f01;
+            --marubi-onyx: #242323;
+        }
+        
+        /* Hero Content Layout - Terminal Left, Text Right */
+        .hero-content {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: var(--space-lg);
+            align-items: start;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Terminal Column */
+        .terminal-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            padding-top: 100px; /* Align with hero text */
+        }
+        
+        /* Live Reviews - Adjusted for left column */
+        .live-reviews {
+            background: rgba(36, 35, 35, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(204, 47, 1, 0.2);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            box-shadow: var(--shadow-onyx);
+            margin: 0;
+        }
+        
+        /* Additional Terminal Info */
+        .terminal-info {
+            background: rgba(36, 35, 35, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(204, 47, 1, 0.2);
+            border-radius: 8px;
+            padding: var(--space-md);
+            max-width: 400px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .terminal-info-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(204, 47, 1, 0.1);
+        }
+        
+        .terminal-info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .terminal-info-label {
+            color: var(--marubi-ember);
+            font-size: 0.85rem;
+            min-width: 80px;
+        }
+        
+        .terminal-info-value {
+            color: var(--marubi-cream);
+            font-size: 0.85rem;
+        }
+        
+        /* Hero Text Column */
+        .hero-text-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        /* Hero Text adjustments */
+        .hero-text {
+            position: relative;
+        }
+        
+        .hero-text::before {
+            content: 'FOUNDER & CEO';
+            position: absolute;
+            top: -60px;
+            left: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--marubi-ember);
+            letter-spacing: 4px;
+            opacity: 0.5;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+        }
+        
+        .hero-title .greeting {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title .name {
+            background: var(--gradient-ember);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title .name::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-ember);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: slideIn 1s ease 1s forwards;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+            max-width: 600px;
+            border-left: 4px solid var(--marubi-ember);
+            padding-left: var(--space-md);
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: var(--space-lg);
+            line-height: 1.8;
+            max-width: 500px;
+        }
+        
+        /* Stats adjustment */
+        .hero-stats {
+            display: flex;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md);
+            background: rgba(36, 35, 35, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(204, 47, 1, 0.1);
+            max-width: fit-content;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-content {
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .terminal-column {
+                align-items: center;
+                padding-top: 0;
+            }
+            
+            .hero-text-column {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-subtitle {
+                border-left: none;
+                border-top: 4px solid var(--marubi-ember);
+                padding-top: var(--space-md);
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-stats {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">MARUBI-LABS</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">
+                
+                    <span>Home</span>
+                </a>
+                <a href="origin.html" class="nav-link">
+             
+                    <span>Origin</span>
+                </a>
+                <a href="arsenal.html" class="nav-link">
+                 
+                    <span>Arsenal</span>
+                </a>
+                <a href="workshop.html" class="nav-link">
+             
+                    <span>Workshop</span>
+                </a>
+                <a href="vision.html" class="nav-link">
+                    <span>Vision</span>
+                </a>
+                <a href="connect.html" class="nav-link">
+          
+                    <span>Connect</span>
+                </a>
+                   <a href="resume.html" class="nav-link">
+          
+                    <span>Resume</span>
+                </a>
+ 
+
+                
+                
+                
+            </div>
+            
+            <div class="nav-actions">
+   
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+    
+        
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </nav>
+
+    <!-- Hero Section - The Statement -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- LEFT COLUMN - Terminal -->
+                <div class="terminal-column animate-fade-in">
+                    <!-- Live Reviews Terminal -->
+                    <div class="live-reviews">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">marubilabs.dev</span>
+                        </div>
+                        <div class="terminal-body">
+                            <span class="prompt">$</span>
+                            <span class="typing-text" id="typingReview">Building Africa's digital future</span>
+                            <span class="cursor">|</span>
+                            <span class="rating-stars" id="ratingStars">★★★★★</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Terminal Info -->
+                    <div class="terminal-info">
+                        <div class="terminal-info-item">
+                            <span class="terminal-info-label">STATUS:</span>
+                            <span class="terminal-info-value">ACTIVE · BUILDING</span>
+                        </div>
+                        <div class="terminal-info-item">
+                            <span class="terminal-info-label">UPTIME:</span>
+                            <span class="terminal-info-value">20 YEARS · CEO</span>
+                        </div>
+                        <div class="terminal-info-item">
+                            <span class="terminal-info-label">PROJECTS:</span>
+                            <span class="terminal-info-value">MINDBRIDGE.CO.KE · MZURIORGANICS.CO.KE</span>
+                        </div>
+                        <div class="terminal-info-item">
+                            <span class="terminal-info-label">LOCATION:</span>
+                            <span class="terminal-info-value">KENYA · EAT</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RIGHT COLUMN - Hero Text -->
+                <div class="hero-text-column">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="greeting">Hello, I'm</span>
+                            <span class="name">Felix Marubi</span>
+                        </h1>
+                        
+                        <h2 class="hero-subtitle animate-slide-up delay-1">
+                            CEO & Founder at Marubi-Labs · Building Mindbridge & Mzuri Organics
+                        </h2>
+                        
+                        <p class="hero-description animate-slide-up delay-2">
+                            At 20, I'm crafting digital solutions that matter. From mental health platforms 
+                            to e-commerce for farmers — I build, secure, and deploy. No complexity is too deep.
+                        </p>
+                        
+                        <div class="hero-stats animate-slide-up delay-3">
+                            <div class="stat-item">
+                                <div class="stat-number">2<sup>nd</sup></div>
+                                <div class="stat-label">Year · Arsenal</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Companies</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">60+</div>
+                                <div class="stat-label">Technologies</div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-buttons animate-slide-up delay-4">
+                            <a href="#gallery" class="btn btn-primary">
+                                <i class="fas fa-eye"></i>
+                                View Legacy
+                            </a>
+                            <a href="connect.html" class="btn btn-outline">
+                                <i class="fas fa-paper-plane"></i>
+                                Connect
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Image (moved to right side) -->
+                <div class="hero-image animate-float" style="grid-column: 2; margin-top: var(--space-lg);">
+                    <div class="profile-frame">
+                        <img src="images/profile/profile.jpg" alt="Felix Marubi - CEO" class="profile-img">
+                        <div class="founder-badge">
+                            <span>FOUNDER</span> · 20
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Gallery Section - The Archive -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Archive</h2>
+                <p class="section-subtitle">Frames from the journey · 2023 — 2026</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="images/gallery/hackathon1.JPG" alt="Command Center" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3>Hackathon Challenges</h3>
+                        <p>Presented a project on climate conservation</p>
+                        <span class="gallery-tag">2024</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/alihas.JPG" alt="Mindbridge Team" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3>Mindbridge</h3>
+                        <p>Mental health platform for Kenyan  school children</p>
+                        <span class="gallery-tag">2024</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item tall">
+                    <img src="images/gallery/Eco Track design.JPG" alt="Code" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3>Echo-Track</h3>
+                        <p>Building scalable solutions for farmers</p>
+                        <span class="gallery-tag">2024</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/accessibility.JPG" alt="Mzuri Organics" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3>Mzuri Organics</h3>
+                        <p>E-commerce for Kenyan farmers</p>
+                        <span class="gallery-tag">2023</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="images/gallery/bytelab.JPG" alt="Cybersecurity Lab" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3>Cybersecurity</h3>
+                        <p>Securing African digital infrastructure</p>
+                        <span class="gallery-tag">2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase - The Companies -->
+    <section class="projects-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Portfolio</h2>
+                <p class="section-subtitle">Companies built from the ground up</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Mindbridge -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/gallery/best landing.JPG" alt="Mindbridge">
+                    </div>
+                    <div class="project-content">
+                        <span class="company">mind-bridge.co.ke</span>
+                        <h3>Mindbridge</h3>
+                        <p>Mental health support platform connecting Kenyan youth with professional counselors. Built with privacy and accessibility at its core.</p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>Tailwind</span>
+                            <span>TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mzuri Organics -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/gallery/accessibility.JPG" alt="Mzuri Organics">
+                    </div>
+                    <div class="project-content">
+                        <span class="company">mzuri-organics.co.ke</span>
+                        <h3>Mzuri Organics</h3>
+                        <p>Full-stack e-commerce platform connecting organic farmers directly to consumers. Payment integration, inventory management, and analytics.</p>
+                        <div class="project-tech">
+                            <span>Angular</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Stripe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview - The Origin -->
+    <section class="about-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Origin</h2>
+                <p class="section-subtitle">From Nairobi to building for Africa</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Roots</h3>
+                    <p>Born and raised in Nairobi, where the tech spark first ignited. The journey from curious kid to founder.</p>
+                    <a href="origin.html" class="card-link">
+                        Read Origin <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Arsenal</h3>
+                    <p>2nd year Software Engineering at Kirinyaga University. Building while learning, always shipping.</p>
+                    <a href="arsenal.html" class="card-link">
+                        View Arsenal <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Vision</h3>
+                    <p>Securing Africa's digital future. Building solutions that matter for the next generation.</p>
+                    <a href="vision.html" class="card-link">
+                        See Vision <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - The Workshop -->
+    <section class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Workshop</h2>
+                <p class="section-subtitle">Tools of the trade · Constantly expanding</p>
+            </div>
+            
+            <div class="skills-cloud">
+                <span class="skill-tag">JavaScript/TypeScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Angular</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Cybersecurity</span>
+                <span class="skill-tag">UI/UX</span>
+            </div>
+            
+            <div class="text-center">
+                <a href="workshop.html" class="btn btn-outline">
+                    <i class="fas fa-tools"></i>
+                    Explore Workshop
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Let's Build Something Legendary</h2>
+                <p>Open to collaborations, partnerships, and projects that move Africa forward.</p>
+                <div class="cta-buttons">
+                    <a href="connect.html" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Start a Conversation
+                    </a>
+                    <a href="assets/resume/felix-marubi-resume.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i>
+                        Download Press Kit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Preview -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Connect Directly</h2>
+                    <p>Whether it's a project, collaboration, or just to say hi — the lines are always open.</p>
+                    
+                    <div class="info-items">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <a href="mailto:felixmarubi2005@gmail.com">felixmarubi2005@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <a href="tel:+254712683708">+254 712 683 708</a>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Location</h3>
+                                <p>Nairobi / Kirinyaga, Kenya · EAT (UTC+3)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/Marubi23" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/felixmarubi" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/felixmarubi" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/marubi___/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Contact Form -->
+                <div class="contact-form">
+                    <h2>Send a Message</h2>
+                    <form id="quickContactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" placeholder="Your Message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i>
+                            Send
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>MARUBI-LABS</span>
+                    </a>
+                    <p>Building Africa's digital future, one line of code at a time. Est. 2023</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Marubi23" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/felixmarubi" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/felixmarubi" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/marubi___/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigate</h3>
+                    <ul>
+                        <li><a href="origin.html">Origin</a></li>
+                        <li><a href="arsenal.html">Arsenal</a></li>
+                        <li><a href="workshop.html">Workshop</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Companies</h3>
+                    <ul>
+                        <li><a href="https://mind-bridge.co.ke" target="_blank">Mindbridge</a></li>
+                        <li><a href="https://mzuri-organics.co.ke" target="_blank">Mzuri Organics</a></li>
+                        <li><a href="#">Marubi-Labs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 MARUBI-LABS · Built with <i class="fas fa-heart" style="color: #cc2f01;"></i> in Kenya · CEO: 20 · For the future</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+
+        // Terminal typing effect
+        const reviews = [
+            "Building Mindbridge for mental health",
+            "Mzuri Organics serving farmers",
+            "Securing African digital space",
+            "20 · CEO · Building legacy"
+        ];
+        let index = 0;
+        const typingElement = document.getElementById('typingReview');
+        
+        function typeReview() {
+            typingElement.style.opacity = '0';
+            setTimeout(() => {
+                typingElement.textContent = reviews[index];
+                typingElement.style.opacity = '1';
+                index = (index + 1) % reviews.length;
+            }, 500);
+        }
+        
+        setInterval(typeReview, 3000);
+
+// Download functions for press kit
+document.getElementById('downloadPressPDF')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('resume.html', '_blank');
+    setTimeout(() => {
+        alert('On the resume page, click "Download PDF" to save your copy.');
+    }, 1000);
+});
+
+document.getElementById('downloadPressHTML')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open('resume.html', '_blank');
+    setTimeout(() => {
+        alert('On the resume page, click "Download Web Version" to save your copy.');
+    }, 1000);
+});
+
+    </script>
+</body>
+</html>

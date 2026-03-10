@@ -1,0 +1,183 @@
+/* ============================================
+   CTA COMPONENT
+   Author: Felix Marubi
+   ============================================ */
+
+.cta-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: var(--space-16) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+.cta-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-12);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-2xl);
+}
+
+.cta-content {
+    flex: 1;
+}
+
+.cta-content h2 {
+    font-size: var(--text-3xl);
+    color: white;
+    margin-bottom: var(--space-4);
+    font-weight: var(--weight-bold);
+}
+
+.cta-content p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-6);
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary {
+    background: white;
+    color: var(--primary);
+    border: 2px solid transparent;
+}
+
+.cta-buttons .btn-primary:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-buttons .btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+}
+
+.cta-buttons .btn-outline:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-image {
+    font-size: 8rem;
+    color: rgba(255, 255, 255, 0.2);
+    line-height: 1;
+    transition: all var(--transition-base);
+}
+
+.cta-card:hover .cta-image {
+    transform: scale(1.1) rotate(5deg);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Mini CTA (for smaller sections) */
+.cta-mini {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    color: white;
+}
+
+.cta-mini h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+}
+
+.cta-mini p {
+    font-size: var(--text-base);
+    opacity: 0.9;
+    margin-bottom: var(--space-4);
+}
+
+.cta-mini .btn {
+    background: white;
+    color: var(--primary);
+    border: none;
+}
+
+.cta-mini .btn:hover {
+    background: var(--gray-bg);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-8);
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .cta-image {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-content h2 {
+        font-size: var(--text-2xl);
+    }
+    
+    .cta-content p {
+        font-size: var(--text-base);
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
+    
+    .cta-image {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-card {
+        padding: var(--space-6);
+    }
+    
+    .cta-content h2 {
+        font-size: var(--text-xl);
+    }
+}

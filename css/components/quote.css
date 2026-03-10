@@ -1,0 +1,122 @@
+/* ============================================
+   QUOTE COMPONENT
+   Author: Felix Marubi
+   ============================================ */
+
+.quote-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: var(--space-16) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+.quote-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-12);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    box-shadow: var(--shadow-2xl);
+}
+
+.quote-icon {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: var(--space-6);
+}
+
+.quote-text {
+    font-size: var(--text-2xl);
+    line-height: 1.8;
+    margin-bottom: var(--space-8);
+    font-style: italic;
+    font-weight: var(--weight-light);
+}
+
+.quote-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.author-info {
+    text-align: left;
+}
+
+.author-info strong {
+    display: block;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+}
+
+.author-info span {
+    font-size: var(--text-sm);
+    opacity: 0.8;
+}
+
+.author-location {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    opacity: 0.9;
+    padding-left: var(--space-4);
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.author-location i {
+    font-size: var(--text-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .quote-card {
+        padding: var(--space-8);
+    }
+    
+    .quote-text {
+        font-size: var(--text-xl);
+    }
+    
+    .quote-author {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-2);
+    }
+    
+    .author-info {
+        text-align: center;
+    }
+    
+    .author-location {
+        border-left: none;
+        padding-left: 0;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .quote-text {
+        font-size: var(--text-lg);
+    }
+}

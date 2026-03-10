@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    
+    <!-- Primary Meta Tags -->
+    <title>Resume | Felix Marubi - CEO & Founder at Marubi-Labs</title>
+    <meta name="title" content="Resume | Felix Marubi - CEO & Founder at Marubi-Labs">
+    <meta name="description" content="Professional resume of Felix Marubi, Full-Stack Developer and Cybersecurity Specialist building Africa's digital future.">
+    <meta name="keywords" content="Felix Marubi, Resume, CV, Full Stack Developer, Cybersecurity, Kenya">
+    <meta name="author" content="Felix Marubi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marubilabs.com/resume.html">
+    <meta property="og:title" content="Resume | Felix Marubi - CEO & Founder">
+    <meta property="og:description" content="Professional resume of Felix Marubi, Full-Stack Developer and Cybersecurity Specialist.">
+    <meta property="og:image" content="images/og-resume.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/pages/resume.css">
+    
+    <style>
+        /* Quick fixes for mobile */
+        @media (max-width: 768px) {
+            .block-content {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out;
+            }
+            
+            .block-content.show {
+                max-height: 600px;
+                overflow-y: auto;
+            }
+            
+            .block-title {
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .block-title:active {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">MARUBI-LABS</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <span>Home</span>
+                </a>
+                <a href="origin.html" class="nav-link">
+                    <span>Origin</span>
+                </a>
+                <a href="arsenal.html" class="nav-link">
+                    <span>Arsenal</span>
+                </a>
+                <a href="workshop.html" class="nav-link">
+                    <span>Workshop</span>
+                </a>
+                <a href="vision.html" class="nav-link">
+                    <span>Vision</span>
+                </a>
+                <a href="connect.html" class="nav-link">
+                    <span>Connect</span>
+                </a>
+                <a href="resume.html" class="nav-link active">
+                    <span>Resume</span>
+                </a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content animate-fade-in">
+                <h1 class="page-title">
+                    Professional <span class="ember">Resume</span>
+                </h1>
+                <p class="page-subtitle">
+                    Full-Stack Developer · Cybersecurity Specialist · CEO at 20
+                </p>
+                <div class="header-actions">
+                    <button class="btn btn-primary" id="downloadPDFBtn">
+                        <i class="fas fa-file-pdf"></i>
+                        Download PDF
+                    </button>
+                    <button class="btn btn-outline" id="downloadHTMLBtn">
+                        <i class="fas fa-code"></i>
+                        Download Web Version
+                    </button>
+                    <button class="btn btn-outline" onclick="window.print()">
+                        <i class="fas fa-print"></i>
+                        Print
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>View Resume</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Resume Content -->
+    <section class="resume-section">
+        <div class="container">
+            <div class="resume-container" id="resume-content">
+                <!-- Left Column -->
+                <div class="resume-left">
+                    <!-- Profile -->
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="images/profile/profile.jpg" alt="Felix Marubi">
+                        </div>
+                        <h1 class="profile-name">
+                            <span class="first">FELIX</span>
+                            <span class="last">ONYANCHA</span>
+                        </h1>
+                        <div class="profile-title">FULL-STACK · SECURITY</div>
+                        <div class="profile-badge">
+                            <i class="fas fa-crown"></i> CEO at 20
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-address-card"></i>
+                            Contact
+                        </h2>
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Nairobi, Kenya</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:felixmarubi2005@gmail.com">felixmarubi2005@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:+254712683708">+254 712 683 708</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="https://linkedin.com/in/felix-marubi-763bb7356/" target="_blank">felix-marubi</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <a href="https://github.com/Marubi23" target="_blank">Marubi23</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-instagram"></i>
+                                <a href="https://instagram.com/marubi___" target="_blank">@marubi___</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            Education
+                        </h2>
+                        <div class="edu-item">
+                            <h3>B.Sc. Computer Science</h3>
+                            <p class="edu-meta">Kirinyaga University</p>
+                            <p class="edu-date">2023 - Present · Second Year</p>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-certificate"></i>
+                            Certifications
+                        </h2>
+                        <div class="cert-list">
+                            <div class="cert-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Google Cybersecurity</span>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-code"></i>
+                                <span>Meta Frontend Developer</span>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-lock"></i>
+                                <span>Ethical Hacking Essentials</span>
+                            </div>
+                            <div class="cert-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>AWS Cloud Practitioner (In Progress)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Summary -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-cog"></i>
+                            Top Skills
+                        </h2>
+                        <div class="skills-mini">
+                            <span class="skill-mini">JavaScript/TS</span>
+                            <span class="skill-mini">React</span>
+                            <span class="skill-mini">Angular</span>
+                            <span class="skill-mini">Node.js</span>
+                            <span class="skill-mini">Python</span>
+                            <span class="skill-mini">Cybersecurity</span>
+                            <span class="skill-mini">Pen Testing</span>
+                            <span class="skill-mini">MongoDB</span>
+                            <span class="skill-mini">Docker</span>
+                            <span class="skill-mini">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="resume-right">
+                    <!-- Summary -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-user"></i>
+                            Professional Summary
+                        </h2>
+                        <div class="summary-text">
+                            <i class="fas fa-quote-left" style="color: var(--marubi-ember); opacity: 0.5; margin-right: 0.5rem;"></i>
+                            A highly driven Full-Stack Developer and Cybersecurity Specialist with a strong passion for building secure, scalable, and impactful digital solutions. Currently advancing skills through real-world development and security projects, with a deep commitment to innovation, problem-solving, and continuous learning. Known for combining creativity, discipline, and technical expertise to deliver solutions that add real value to users and communities.
+                        </div>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-briefcase"></i>
+                            Professional Experience
+                        </h2>
+                        
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <h3>Freelance Full-Stack Developer</h3>
+                                <span class="exp-date">2023 - Present</span>
+                            </div>
+                            <ul class="exp-list">
+                                <li>Built ShortX E-commerce Platform with payments, admin dashboard, and inventory management.</li>
+                                <li>Developed Vendor Shops Marketplace for local businesses.</li>
+                                <li>Created Kyu Varsity Hub (Angular-based student platform).</li>
+                            </ul>
+                            <div class="exp-tech">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                                <span>Angular</span>
+                            </div>
+                        </div>
+
+                        <div class="exp-item">
+                            <div class="exp-header">
+                                <h3>Freelance Cybersecurity Pentester</h3>
+                                <span class="exp-date">2023 - Present</span>
+                            </div>
+                            <ul class="exp-list">
+                                <li>Conducted penetration tests and identified critical vulnerabilities.</li>
+                                <li>Built Python tools for automated security testing.</li>
+                                <li>Delivered remediation reports using Kali Linux, Metasploit, Burp Suite, Wireshark.</li>
+                            </ul>
+                            <div class="exp-tech">
+                                <span>Kali Linux</span>
+                                <span>Metasploit</span>
+                                <span>Burp Suite</span>
+                                <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Featured Projects -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-rocket"></i>
+                            Featured Projects
+                        </h2>
+                        
+                        <div class="project-row">
+                            <div class="project-mini-card">
+                                <h4>Mzuri Organics</h4>
+                                <p>Agricultural e-commerce platform</p>
+                                <span class="project-status">Ongoing</span>
+                            </div>
+                            <div class="project-mini-card">
+                                <h4>ShortX</h4>
+                                <p>Full e-commerce with payments</p>
+                                <span class="project-status">Live</span>
+                            </div>
+                            <div class="project-mini-card">
+                                <h4>Mindbridge</h4>
+                                <p>Mental health platform</p>
+                                <span class="project-status">Live</span>
+                            </div>
+                            <div class="project-mini-card">
+                                <h4>Conservation Platform</h4>
+                                <p>Environmental data insights</p>
+                                <span class="project-status">In Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-trophy"></i>
+                            Achievements
+                        </h2>
+                        
+                        <div class="achievement-list">
+                            <div class="achievement-item">
+                                <i class="fas fa-medal"></i>
+                                <div>
+                                    <h4>Wangari Maathai Hackathon</h4>
+                                    <p>Participated with focus on environmental technology</p>
+                                </div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <div>
+                                    <h4>Conservation Intelligence Platform</h4>
+                                    <p>Presented concept for environmental conservation using tech</p>
+                                </div>
+                            </div>
+                            <div class="achievement-item">
+                                <i class="fas fa-rocket"></i>
+                                <div>
+                                    <h4>25+ Projects Delivered</h4>
+                                    <p>Across e-commerce, security, and social impact</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Grid -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-cogs"></i>
+                            Technical Skills
+                        </h2>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Frontend</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">TypeScript</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Angular</span>
+                                    <span class="skill-tag">Vue.js</span>
+                                    <span class="skill-tag">HTML5/CSS3</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4>Backend</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Express</span>
+                                    <span class="skill-tag">REST APIs</span>
+                                    <span class="skill-tag">MongoDB</span>
+                                    <span class="skill-tag">SQL</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4>Cybersecurity</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Pen Testing</span>
+                                    <span class="skill-tag">Kali Linux</span>
+                                    <span class="skill-tag">Metasploit</span>
+                                    <span class="skill-tag">Burp Suite</span>
+                                    <span class="skill-tag">Wireshark</span>
+                                    <span class="skill-tag">Vulnerability Assessment</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4>Tools</h4>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Git/GitHub</span>
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">Postman</span>
+                                    <span class="skill-tag">Agile/Scrum</span>
+                                    <span class="skill-tag">CI/CD</span>
+                                    <span class="skill-tag">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="resume-block">
+                        <h2 class="block-title">
+                            <i class="fas fa-language"></i>
+                            Languages
+                        </h2>
+                        <div class="language-bars">
+                            <div class="lang-bar">
+                                <span>English</span>
+                                <div class="bar"><div class="fill" style="width: 100%"></div></div>
+                            </div>
+                            <div class="lang-bar">
+                                <span>Swahili</span>
+                                <div class="bar"><div class="fill" style="width: 100%"></div></div>
+                            </div>
+                            <div class="lang-bar">
+                                <span>French</span>
+                                <div class="bar"><div class="fill" style="width: 60%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Download Options at Bottom -->
+            <div class="resume-footer-actions">
+                <p class="ref-note">References available upon request · marubi-labs.com/resume</p>
+                <div class="footer-buttons">
+                    <button class="btn btn-primary" id="downloadPDFBtn2">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </button>
+                    <button class="btn btn-outline" id="downloadHTMLBtn2">
+                        <i class="fas fa-code"></i> Download HTML
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>MARUBI-LABS</span>
+                    </a>
+                    <p>Building Africa's digital future, one line of code at a time. Est. 2023</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Marubi23" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/felixmarubi" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/felixmarubi" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/marubi___/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigate</h3>
+                    <ul>
+                        <li><a href="origin.html">Origin</a></li>
+                        <li><a href="arsenal.html">Arsenal</a></li>
+                        <li><a href="workshop.html">Workshop</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Companies</h3>
+                    <ul>
+                        <li><a href="https://mind-bridge.co.ke" target="_blank">Mindbridge</a></li>
+                        <li><a href="https://mzuri-organics.co.ke" target="_blank">Mzuri Organics</a></li>
+                        <li><a href="#">Marubi-Labs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> felixmarubi2005@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +254 712 683 708</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 MARUBI-LABS · Built with <i class="fas fa-heart" style="color: #cc2f01;"></i> in Kenya · CEO: 20 · For the future</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    
+    <!-- Mobile Dropdown Functionality -->
+    <script src="js/resume-mobile.js"></script>
+    
+    <script>
+        // Download PDF function
+        function downloadPDF() {
+            const element = document.getElementById('resume-content');
+            const opt = {
+                margin:        [0.5, 0.5, 0.5, 0.5],
+                filename:      'Felix_Onyancha_Resume.pdf',
+                image:         { type: 'jpeg', quality: 0.98 },
+                html2canvas:   { scale: 2, backgroundColor: '#1a1a1a' },
+                jsPDF:         { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+        
+        // Download HTML function
+        function downloadHTML() {
+            const content = document.getElementById('resume-content').outerHTML;
+            const styles = document.querySelector('link[href="css/pages/resume.css"]') ? 
+                          document.querySelector('link[href="css/pages/resume.css"]').outerHTML : '';
+            
+            const fullHTML = `<!DOCTYPE html>
+<html>
+<head>
+    <title>Felix Onyancha - Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --marubi-ember: #cc2f01;
+            --marubi-onyx: #242323;
+            --marubi-ember-light: #e64d2e;
+            --marubi-cream: #f8f5f2;
+            --marubi-charcoal: #1a1a1a;
+            --space-md: 2rem;
+        }
+        body { 
+            background: #1a1a1a; 
+            padding: 1rem; 
+            margin: 0; 
+            font-family: 'Inter', sans-serif;
+            color: #f8f5f2;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        ${document.querySelector('link[href="css/pages/resume.css"]') ? 
+          '/* Styles from resume.css would be included here */' : ''}
+    </style>
+</head>
+<body>
+    <div class="container">
+        ${content}
+    </div>
+</body>
+</html>`;
+            
+            const blob = new Blob([fullHTML], { type: 'text/html' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'Felix_Onyancha_Resume.html';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+        
+        // Attach to buttons
+        document.getElementById('downloadPDFBtn')?.addEventListener('click', downloadPDF);
+        document.getElementById('downloadPDFBtn2')?.addEventListener('click', downloadPDF);
+        document.getElementById('downloadHTMLBtn')?.addEventListener('click', downloadHTML);
+        document.getElementById('downloadHTMLBtn2')?.addEventListener('click', downloadHTML);
+    </script>
+</body>
+</html>

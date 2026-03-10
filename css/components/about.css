@@ -1,0 +1,221 @@
+/* ============================================
+   ABOUT COMPONENT
+   Author: Felix Marubi
+   ============================================ */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
+.about-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    border: 1px solid var(--gray-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .about-card {
+    background: var(--dark-soft);
+    border-color: var(--gray-dark);
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl);
+}
+
+.about-card:hover::before {
+    transform: scaleX(1);
+}
+
+.about-card .card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-4);
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    transition: all var(--transition-base);
+}
+
+.about-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.about-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+    color: var(--dark);
+}
+
+[data-theme="dark"] .about-card h3 {
+    color: var(--light);
+}
+
+.about-card p {
+    color: var(--gray);
+    margin-bottom: var(--space-4);
+    line-height: 1.7;
+}
+
+.about-card .card-link {
+    color: var(--primary);
+    font-weight: var(--weight-medium);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: gap var(--transition-base);
+}
+
+.about-card .card-link:hover {
+    gap: var(--space-3);
+    color: var(--secondary);
+}
+
+.about-card .card-link i {
+    font-size: var(--text-sm);
+    transition: transform var(--transition-base);
+}
+
+.about-card .card-link:hover i {
+    transform: translateX(3px);
+}
+
+/* About Stats */
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+    text-align: center;
+}
+
+.about-stat {
+    padding: var(--space-4);
+}
+
+.about-stat .stat-number {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-bold);
+    color: var(--primary);
+    margin-bottom: var(--space-1);
+}
+
+.about-stat .stat-label {
+    color: var(--gray);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* About Timeline */
+.about-timeline {
+    margin-top: var(--space-12);
+}
+
+.timeline-item {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-soft);
+    transition: all var(--transition-base);
+}
+
+[data-theme="dark"] .timeline-item {
+    background: var(--dark-soft);
+    border-color: var(--gray-dark);
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+    border-color: var(--primary);
+}
+
+.timeline-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.timeline-content h4 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+    color: var(--dark);
+}
+
+[data-theme="dark"] .timeline-content h4 {
+    color: var(--light);
+}
+
+.timeline-content .date {
+    font-size: var(--text-sm);
+    color: var(--primary);
+    font-weight: var(--weight-medium);
+    margin-bottom: var(--space-2);
+}
+
+.timeline-content p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-card {
+        padding: var(--space-6);
+    }
+    
+    .about-card .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
