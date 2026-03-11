@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Services | Felix Marubi - Full‑Stack & Cybersecurity</title>
+    <meta name="title" content="Services | Felix Marubi - Full‑Stack & Cybersecurity">
+    <meta name="description" content="Premium full‑stack development & cybersecurity. Kenyan & global rates. Transparent ranges, negotiation friendly. Nothing is too hard.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Services | Felix Marubi - Full‑Stack & Cybersecurity">
+    <meta property="og:description" content="Premium full‑stack development & cybersecurity. Kenyan & global rates.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main site CSS + services-specific CSS -->
+    <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/pages/services.css">
+</head>
+<body>
+    <!-- Navigation (same as connect page) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">MARUBI-LABS</span>
+            </a>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link"><span>Home</span></a>
+                <a href="origin.html" class="nav-link"><span>Origin</span></a>
+                <a href="arsenal.html" class="nav-link"><span>Arsenal</span></a>
+                <a href="workshop.html" class="nav-link"><span>Workshop</span></a>
+                <a href="vision.html" class="nav-link"><span>Vision</span></a>
+                <a href="connect.html" class="nav-link"><span>Connect</span></a>
+                <a href="resume.html" class="nav-link"><span>Resume</span></a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content animate-fade-in">
+                <h1 class="page-title">
+                    Premium <span class="ember">Services</span>
+                </h1>
+                <p class="page-subtitle">
+                    Nothing is too hard. From MVPs to enterprise armour — transparent ranges, negotiation friendly. 
+                    Toggle between KES and USD.
+                </p>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Currency Toggle (premium glass) -->
+    <section class="currency-toggle-section">
+        <div class="container">
+            <div class="toggle-container" id="currencyToggle">
+                <span class="toggle-label">Display prices in</span>
+                <div class="toggle-switch">
+                    <span class="toggle-option active" data-currency="KES">KES 🇰🇪</span>
+                    <span class="toggle-option" data-currency="USD">USD 💵</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FLAGSHIP: Complete Website + Database (100k KES) -->
+    <section class="flagship-section">
+        <div class="container">
+            <div class="flagship-card animate-on-scroll" data-animate="fade-in">
+                <div class="flagship-badge"><i class="fas fa-crown"></i> FLAGSHIP</div>
+                <div class="flagship-content">
+                    <div class="flagship-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="flagship-text">
+                        <h2>Complete Website <span class="ember">+ Database</span></h2>
+                        <p class="flagship-desc">Dynamic, data‑driven web app — custom backend, admin panel, user auth, scalable DB. Your vision, fully realised.</p>
+                        <div class="flagship-price">
+                            <span class="price-range" data-kes="100,000" data-usd="850">KES 100,000</span>
+                            <small>flat</small>
+                        </div>
+                        <div class="flagship-meta">includes 2 months support · delivery 3‑6 weeks · no hidden costs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WEB DEVELOPMENT section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Web <span class="ember">Development</span></h2>
+                <p class="section-subtitle">Custom‑coded, responsive, future‑proof</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Basic Business Site -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Basic Business Site</h3>
+                    <p class="service-desc">5-7 pages, contact forms, responsive, basic SEO, mobile‑first.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="15000" data-kes-max="25000" data-usd-min="130" data-usd-max="210">KES 15,000 – 25,000</span>
+                    </div>
+                </div>
+
+                <!-- E‑commerce Platform -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="100">
+                    <div class="service-icon"><i class="fas fa-store"></i></div>
+                    <h3>E‑commerce Platform</h3>
+                    <p class="service-desc">Full shop, cart, products, payment gateway, admin dashboard.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="35000" data-kes-max="60000" data-usd-min="295" data-usd-max="500">KES 35,000 – 60,000</span>
+                    </div>
+                </div>
+
+                <!-- Custom Web App -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="200">
+                    <div class="service-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>Custom Web App</h3>
+                    <p class="service-desc">Bespoke tool / SaaS, heavy logic, database, API integrations.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="45000" data-kes-max="80000" data-usd-min="375" data-usd-max="670">KES 45,000 – 80,000+</span>
+                    </div>
+                </div>
+
+                <!-- Redesign / Revamp -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="300">
+                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Redesign / Revamp</h3>
+                    <p class="service-desc">Modern UI/UX, speed optimisation, content refresh.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="20000" data-kes-max="40000" data-usd-min="170" data-usd-max="335">KES 20,000 – 40,000</span>
+                    </div>
+                </div>
+
+                <!-- API Integration -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="400">
+                    <div class="service-icon"><i class="fas fa-plug"></i></div>
+                    <h3>API Integration</h3>
+                    <p class="service-desc">Connect M‑Pesa, payment gateways, third‑party APIs, automation.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="15000" data-kes-max="35000" data-usd-min="130" data-usd-max="295">KES 15,000 – 35,000</span>
+                    </div>
+                </div>
+
+                <!-- PWA / mobile web -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="500">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>PWA / Mobile Web</h3>
+                    <p class="service-desc">Progressive app, offline‑capable, app‑like experience.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="25000" data-kes-max="50000" data-usd-min="210" data-usd-max="420">KES 25,000 – 50,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAINTENANCE & SUPPORT section -->
+    <section class="services-section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Maintenance & <span class="ember">Support</span></h2>
+                <p class="section-subtitle">Keep your systems healthy 24/7</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Monthly Maintenance -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in">
+                    <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>Monthly Maintenance</h3>
+                    <p class="service-desc">Updates, backups, security patches, performance checks.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="5000" data-kes-max="10000" data-usd-min="42" data-usd-max="85">KES 5,000 – 10,000 <span class="price-period">/mo</span></span>
+                    </div>
+                </div>
+
+                <!-- Technical Support (hourly) -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="100">
+                    <div class="service-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Technical Support</h3>
+                    <p class="service-desc">Hourly consultation, debugging, changes.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes="1500" data-usd="13">KES 1,500 <span class="price-period">/hour</span></span>
+                    </div>
+                </div>
+
+                <!-- Emergency Fixes -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="200">
+                    <div class="service-icon"><i class="fas fa-bug"></i></div>
+                    <h3>Emergency Fixes</h3>
+                    <p class="service-desc">Critical outage / hack repair, off‑hour response.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes="2500" data-usd="21">KES 2,500 <span class="price-period">/hour</span></span>
+                    </div>
+                </div>
+
+                <!-- SEO / Speed Boost -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="300">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>SEO / Speed Boost</h3>
+                    <p class="service-desc">On‑page SEO, Core Web Vitals, Lighthouse optimisation.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="8000" data-kes-max="18000" data-usd-min="67" data-usd-max="150">KES 8,000 – 18,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CYBERSECURITY section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cybersecurity <span class="ember">· Ethical Hacking</span></h2>
+                <p class="section-subtitle">Hardened systems, zero‑day ready</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Security Audit -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>Website Security Audit</h3>
+                    <p class="service-desc">Full vuln scan, config review, risk report.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="15000" data-kes-max="25000" data-usd-min="130" data-usd-max="210">KES 15,000 – 25,000</span>
+                    </div>
+                </div>
+
+                <!-- Penetration Testing -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="100">
+                    <div class="service-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>Penetration Testing</h3>
+                    <p class="service-desc">Simulated attacks, deep exploit analysis, remediation.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="20000" data-kes-max="35000" data-usd-min="170" data-usd-max="295">KES 20,000 – 35,000</span>
+                    </div>
+                </div>
+
+                <!-- Security Monitoring -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="200">
+                    <div class="service-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Security Monitoring Setup</h3>
+                    <p class="service-desc">Firewall, IDS, log monitoring, alert config.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="10000" data-kes-max="20000" data-usd-min="85" data-usd-max="170">KES 10,000 – 20,000</span>
+                    </div>
+                </div>
+
+                <!-- Malware Removal -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="300">
+                    <div class="service-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Malware Removal</h3>
+                    <p class="service-desc">Clean hacked site, harden, restore.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="8000" data-kes-max="20000" data-usd-min="67" data-usd-max="170">KES 8,000 – 20,000</span>
+                    </div>
+                </div>
+
+                <!-- SSL / Secure Config -->
+                <div class="service-card animate-on-scroll" data-animate="fade-in" data-delay="400">
+                    <div class="service-icon"><i class="fas fa-key"></i></div>
+                    <h3>SSL / Secure Config</h3>
+                    <p class="service-desc">Installation, HSTS, ciphers, certificate management.</p>
+                    <div class="service-price">
+                        <span class="price-range" data-kes-min="3000" data-kes-max="8000" data-usd-min="25" data-usd-max="67">KES 3,000 – 8,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE PACKAGES (starter / business / enterprise) -->
+    <section class="packages-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Service <span class="ember">Packages</span></h2>
+                <p class="section-subtitle">All‑in solutions, value‑packed</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Starter Package -->
+                <div class="package-card animate-on-scroll" data-animate="fade-in">
+                    <div class="package-name">🚀 Starter</div>
+                    <div class="package-price">
+                        <span class="price-range" data-kes="25000" data-usd="210">KES 25,000</span>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> 5‑page responsive site</li>
+                        <li><i class="fas fa-check-circle"></i> Contact / enquiry forms</li>
+                        <li><i class="fas fa-check-circle"></i> Basic on‑page SEO</li>
+                        <li><i class="fas fa-check-circle"></i> 1 month tech support</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile optimised</li>
+                    </ul>
+                </div>
+
+                <!-- Business Package -->
+                <div class="package-card animate-on-scroll" data-animate="fade-in" data-delay="150">
+                    <div class="package-name">💼 Business</div>
+                    <div class="package-price">
+                        <span class="price-range" data-kes="45000" data-usd="375">KES 45,000</span>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> Full e‑commerce / store</li>
+                        <li><i class="fas fa-check-circle"></i> Admin dashboard & inventory</li>
+                        <li><i class="fas fa-check-circle"></i> M‑Pesa / payment integration</li>
+                        <li><i class="fas fa-check-circle"></i> 3 months support</li>
+                        <li><i class="fas fa-check-circle"></i> SSL & basic security</li>
+                    </ul>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="package-card animate-on-scroll" data-animate="fade-in" data-delay="300">
+                    <div class="package-name">🏢 Enterprise</div>
+                    <div class="package-price">
+                        <span class="price-range" data-kes="65000" data-usd="540">KES 65,000+</span>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check-circle"></i> Custom web system / app</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced functionality</li>
+                        <li><i class="fas fa-check-circle"></i> Security‑first integration</li>
+                        <li><i class="fas fa-check-circle"></i> 6 months priority support</li>
+                        <li><i class="fas fa-check-circle"></i> Scalable database</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTRA / NICHE SERVICES (nothing is too hard) -->
+    <section class="extra-section">
+        <div class="container">
+            <div class="extra-grid">
+                <div class="extra-item"><i class="fas fa-credit-card"></i> <span class="price-range" data-kes-min="12000" data-kes-max="25000" data-usd-min="100" data-usd-max="210">MPESA API · KES 12,000 – 25,000</span></div>
+                <div class="extra-item"><i class="fas fa-chart-pie"></i> <span class="price-range" data-kes-min="25000" data-kes-max="45000" data-usd-min="210" data-usd-max="375">Analytics Dashboard · KES 25k–45k</span></div>
+                <div class="extra-item"><i class="fas fa-robot"></i> <span class="price-range" data-kes-min="30000" data-kes-max="60000" data-usd-min="250" data-usd-max="500">Chatbot / AI Integration · KES 30k–60k</span></div>
+                <div class="extra-item"><i class="fas fa-wifi"></i> IoT Dashboard · <span class="price-range" data-kes="quote" data-usd="quote">quote on request</span></div>
+                <div class="extra-item"><i class="fas fa-share-alt"></i> <span class="price-range" data-kes-min="10000" data-kes-max="18000" data-usd-min="85" data-usd-max="150">Social Media Auth · KES 10k–18k</span></div>
+                <div class="extra-item"><i class="fas fa-qrcode"></i> <span class="price-range" data-kes-min="20000" data-kes-max="35000" data-usd-min="170" data-usd-max="295">QR / Ticketing System · KES 20k–35k</span></div>
+                <div class="extra-item"><i class="fas fa-file-signature"></i> <span class="price-range" data-kes-min="30000" data-kes-max="50000" data-usd-min="250" data-usd-max="420">Digital Signature Portal · KES 30k–50k</span></div>
+                <div class="extra-item"><i class="fas fa-tasks"></i> <span class="price-range" data-kes-min="50000" data-kes-max="80000" data-usd-min="420" data-usd-max="670">Custom CRM · KES 50k–80k</span></div>
+            </div>
+            <p class="extra-motto"><i class="fas fa-bolt"></i> Nothing is too hard — if you need something else, just ask.</p>
+        </div>
+    </section>
+
+    <!-- INFO BAR (delivery & payment) -->
+    <section class="info-bar">
+        <div class="container">
+            <div class="info-bar-content">
+                <span><i class="fas fa-calendar-alt"></i> Delivery: 2–4 weeks (typical) · complex up to 8 weeks</span>
+                <span><i class="fas fa-coins"></i> Payment plans: 30–50% deposit, balance on completion</span>
+                <span><i class="fas fa-shield-alt"></i> All rates in KES / USD · 16% VAT not included</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to Build Something?</h2>
+                <p>One message could be the start of something legendary.</p>
+                <a href="connect.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i>
+                    Send a Message
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as connect) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>MARUBI-LABS</span>
+                    </a>
+                    <p>Building Africa's digital future, one line of code at a time. Est. 2023</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Marubi23" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/felixmarubi" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/felixmarubi" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/marubi___/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Navigate</h3>
+                    <ul>
+                        <li><a href="origin.html">Origin</a></li>
+                        <li><a href="arsenal.html">Arsenal</a></li>
+                        <li><a href="workshop.html">Workshop</a></li>
+                        <li><a href="vision.html">Vision</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Companies</h3>
+                    <ul>
+                        <li><a href="https://mind-bridge.co.ke" target="_blank">Mindbridge</a></li>
+                        <li><a href="https://mzuri-organics.co.ke" target="_blank">Mzuri Organics</a></li>
+                        <li><a href="#">Marubi-Labs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> felixmarubi2005@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +254 712 683 708</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 MARUBI-LABS · Built with <i class="fas fa-heart" style="color: #cc2f01;"></i> in Kenya · CEO: 20 · For the future</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript (separate file or inline) -->
+    <script>
+        // Currency Toggle Logic (KES / USD)
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleOptions = document.querySelectorAll('.toggle-option');
+            const priceElements = document.querySelectorAll('.price-range');
+            
+            // Set initial currency (KES)
+            let currentCurrency = 'KES';
+            
+            // Conversion rate (approximate: 1 USD = 120 KES)
+            const USD_TO_KES = 120;
+            
+            function updatePrices(currency) {
+                priceElements.forEach(el => {
+                    // Handle single price (flagship, packages, hourly)
+                    if (el.dataset.kes && !el.dataset.kesMin) {
+                        if (currency === 'KES') {
+                            el.innerHTML = `KES ${el.dataset.kes}`;
+                        } else {
+                            el.innerHTML = `$${el.dataset.usd}`;
+                        }
+                    }
+                    // Handle ranges
+                    else if (el.dataset.kesMin && el.dataset.kesMax) {
+                        const kesMin = parseInt(el.dataset.kesMin);
+                        const kesMax = parseInt(el.dataset.kesMax);
+                        if (currency === 'KES') {
+                            el.innerHTML = `KES ${kesMin.toLocaleString()} – ${kesMax.toLocaleString()}`;
+                        } else {
+                            const usdMin = Math.round(kesMin / USD_TO_KES);
+                            const usdMax = Math.round(kesMax / USD_TO_KES);
+                            el.innerHTML = `$${usdMin} – $${usdMax}`;
+                        }
+                    }
+                    // Handle extra items that might have combined text
+                    if (el.closest('.extra-item')) {
+                        // For extra items, we need to preserve the text before price
+                        const parent = el.closest('.extra-item');
+                        const icon = parent.querySelector('i').outerHTML;
+                        const textBefore = parent.innerText.split('KES')[0].trim();
+                        if (currency === 'KES') {
+                            if (el.dataset.kesMin && el.dataset.kesMax) {
+                                parent.innerHTML = icon + ' ' + textBefore + ' · KES ' + parseInt(el.dataset.kesMin).toLocaleString() + '–' + parseInt(el.dataset.kesMax).toLocaleString();
+                            } else if (el.dataset.kes === 'quote') {
+                                parent.innerHTML = icon + ' ' + textBefore + ' · quote on request';
+                            }
+                        } else {
+                            if (el.dataset.usdMin && el.dataset.usdMax) {
+                                parent.innerHTML = icon + ' ' + textBefore + ' · $' + el.dataset.usdMin + '–$' + el.dataset.usdMax;
+                            } else if (el.dataset.usd === 'quote') {
+                                parent.innerHTML = icon + ' ' + textBefore + ' · quote on request';
+                            }
+                        }
+                    }
+                });
+            }
+            
+            toggleOptions.forEach(opt => {
+                opt.addEventListener('click', function() {
+                    // Remove active class from all
+                    toggleOptions.forEach(o => o.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const currency = this.dataset.currency;
+                    currentCurrency = currency;
+                    updatePrices(currency);
+                });
+            });
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Simple scroll animations
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
