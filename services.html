@@ -21,34 +21,85 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Main site CSS + services-specific CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/pages/services.css">
+    
+    <style>
+        /* Quick fix to ensure navbar stays fixed */
+        .navbar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 1000 !important;
+            background: var(--glass-onyx) !important;
+            backdrop-filter: blur(10px) !important;
+        }
+        
+        /* Add padding to body to account for fixed navbar */
+        body {
+            padding-top: 80px;
+        }
+        
+        /* Ensure mobile menu toggle still works */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 1.25rem !important;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--marubi-onyx);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+                z-index: 9999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .menu-toggle {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation (same as connect page) -->
+    <!-- Navigation (fixed navbar) -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <span class="logo-text">MARUBI-LABS</span>
             </a>
             
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link"><span>Home</span></a>
-                <a href="origin.html" class="nav-link"><span>Origin</span></a>
-                <a href="arsenal.html" class="nav-link"><span>Arsenal</span></a>
-                <a href="workshop.html" class="nav-link"><span>Workshop</span></a>
-                <a href="vision.html" class="nav-link"><span>Vision</span></a>
-                <a href="connect.html" class="nav-link"><span>Connect</span></a>
-                <a href="resume.html" class="nav-link"><span>Resume</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="origin.html" class="nav-link">Origin</a>
+                <a href="arsenal.html" class="nav-link">Arsenal</a>
+                <a href="workshop.html" class="nav-link">Workshop</a>
+                <a href="vision.html" class="nav-link">Vision</a>
+                <a href="connect.html" class="nav-link">Connect</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="services.html" class="nav-link active">Pricing</a>
+                <a href="navigation.html" class="nav-link">Explore</a>
             </div>
             
             <div class="nav-actions">
-                <button class="menu-toggle" id="menuToggle">
+                <a href="navigation.html" class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
-                </button>
+                </a>
             </div>
         </div>
+        
         <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
 
@@ -78,7 +129,7 @@
                 <span class="toggle-label">Display prices in</span>
                 <div class="toggle-switch">
                     <span class="toggle-option active" data-currency="KES">KES 🇰🇪</span>
-                    <span class="toggle-option" data-currency="USD">USD 💵</span>
+                    <span class="toggle-option" data-currency="USD">USD</span>
                 </div>
             </div>
         </div>
@@ -319,7 +370,7 @@
 
                 <!-- Business Package -->
                 <div class="package-card animate-on-scroll" data-animate="fade-in" data-delay="150">
-                    <div class="package-name">💼 Business</div>
+                    <div class="package-name">Business</div>
                     <div class="package-price">
                         <span class="price-range" data-kes="45000" data-usd="375">KES 45,000</span>
                     </div>
@@ -334,7 +385,7 @@
 
                 <!-- Enterprise Package -->
                 <div class="package-card animate-on-scroll" data-animate="fade-in" data-delay="300">
-                    <div class="package-name">🏢 Enterprise</div>
+                    <div class="package-name"> Enterprise</div>
                     <div class="package-price">
                         <span class="price-range" data-kes="65000" data-usd="540">KES 65,000+</span>
                     </div>
@@ -392,7 +443,7 @@
         </div>
     </section>
 
-    <!-- Footer (same as connect) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -450,30 +501,39 @@
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- JavaScript (separate file or inline) -->
+    <!-- JavaScript -->
     <script>
-        // Currency Toggle Logic (KES / USD)
+        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close menu when clicking a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Currency Toggle Logic
             const toggleOptions = document.querySelectorAll('.toggle-option');
             const priceElements = document.querySelectorAll('.price-range');
             
-            // Set initial currency (KES)
-            let currentCurrency = 'KES';
-            
-            // Conversion rate (approximate: 1 USD = 120 KES)
             const USD_TO_KES = 120;
             
             function updatePrices(currency) {
                 priceElements.forEach(el => {
-                    // Handle single price (flagship, packages, hourly)
                     if (el.dataset.kes && !el.dataset.kesMin) {
-                        if (currency === 'KES') {
-                            el.innerHTML = `KES ${el.dataset.kes}`;
-                        } else {
-                            el.innerHTML = `$${el.dataset.usd}`;
-                        }
+                        el.innerHTML = currency === 'KES' ? `KES ${el.dataset.kes}` : `$${el.dataset.usd}`;
                     }
-                    // Handle ranges
                     else if (el.dataset.kesMin && el.dataset.kesMax) {
                         const kesMin = parseInt(el.dataset.kesMin);
                         const kesMax = parseInt(el.dataset.kesMax);
@@ -485,56 +545,28 @@
                             el.innerHTML = `$${usdMin} – $${usdMax}`;
                         }
                     }
-                    // Handle extra items that might have combined text
-                    if (el.closest('.extra-item')) {
-                        // For extra items, we need to preserve the text before price
-                        const parent = el.closest('.extra-item');
-                        const icon = parent.querySelector('i').outerHTML;
-                        const textBefore = parent.innerText.split('KES')[0].trim();
-                        if (currency === 'KES') {
-                            if (el.dataset.kesMin && el.dataset.kesMax) {
-                                parent.innerHTML = icon + ' ' + textBefore + ' · KES ' + parseInt(el.dataset.kesMin).toLocaleString() + '–' + parseInt(el.dataset.kesMax).toLocaleString();
-                            } else if (el.dataset.kes === 'quote') {
-                                parent.innerHTML = icon + ' ' + textBefore + ' · quote on request';
-                            }
-                        } else {
-                            if (el.dataset.usdMin && el.dataset.usdMax) {
-                                parent.innerHTML = icon + ' ' + textBefore + ' · $' + el.dataset.usdMin + '–$' + el.dataset.usdMax;
-                            } else if (el.dataset.usd === 'quote') {
-                                parent.innerHTML = icon + ' ' + textBefore + ' · quote on request';
-                            }
-                        }
-                    }
                 });
             }
             
             toggleOptions.forEach(opt => {
                 opt.addEventListener('click', function() {
-                    // Remove active class from all
                     toggleOptions.forEach(o => o.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    const currency = this.dataset.currency;
-                    currentCurrency = currency;
-                    updatePrices(currency);
+                    updatePrices(this.dataset.currency);
                 });
             });
             
-            // Back to top functionality
+            // Back to top
             const backToTop = document.getElementById('backToTop');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
+                backToTop.classList.toggle('visible', window.scrollY > 400);
             });
             
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
-            // Simple scroll animations
+            // Scroll animations
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -542,7 +574,7 @@
                         entry.target.classList.add('animated');
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            }, { threshold: 0.1 });
             
             animatedElements.forEach(el => observer.observe(el));
         });

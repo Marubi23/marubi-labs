@@ -261,57 +261,26 @@
                 <span class="logo-text">MARUBI-LABS</span>
             </a>
             
+            <!-- Desktop Navigation Menu -->
             <div class="nav-menu">
-                <a href="index.html" class="nav-link active">
-                
-                    <span>Home</span>
-                </a>
-                <a href="origin.html" class="nav-link">
-             
-                    <span>Origin</span>
-                </a>
-                <a href="arsenal.html" class="nav-link">
-                 
-                    <span>Arsenal</span>
-                </a>
-                <a href="workshop.html" class="nav-link">
-             
-                    <span>Workshop</span>
-                </a>
-                <a href="vision.html" class="nav-link">
-                    <span>Vision</span>
-                </a>
-                <a href="connect.html" class="nav-link">
-          
-                    <span>Connect</span>
-                </a>
-                   <a href="resume.html" class="nav-link">
-          
-                    <span>Resume</span>
-                </a>
-
-                   </a>
-                   <a href="services.html" class="nav-link">
-          
-                    <span>Pricing</span>
-                </a>
- 
-
-                
-                
-                
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="origin.html" class="nav-link">Origin</a>
+                <a href="arsenal.html" class="nav-link">Arsenal</a>
+                <a href="workshop.html" class="nav-link">Workshop</a>
+                <a href="vision.html" class="nav-link">Vision</a>
+                <a href="connect.html" class="nav-link">Connect</a>
+                <a href="resume.html" class="nav-link">Resume</a>
+                <a href="services.html" class="nav-link">Pricing</a>
+                <a href="navigation.html" class="nav-link">Explore</a>
             </div>
             
+            <!-- Mobile Toggle Button - Links to navigation.html -->
             <div class="nav-actions">
-   
-                </button>
-                <button class="menu-toggle" id="menuToggle">
+                <a href="navigation.html" class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
-                </button>
+                </a>
             </div>
         </div>
-        
-    
         
         <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
@@ -444,7 +413,7 @@
                     <img src="images/gallery/alihas.JPG" alt="Mindbridge Team" class="gallery-image">
                     <div class="gallery-overlay">
                         <h3>Mindbridge</h3>
-                        <p>Mental health platform for Kenyan  school children</p>
+                        <p>Mental health platform for Kenyan school children</p>
                         <span class="gallery-tag">2024</span>
                     </div>
                 </div>
@@ -769,8 +738,6 @@
 
     <!-- JavaScript -->
     <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/theme.js"></script>
     <script src="js/animations.js"></script>
     <script>
 
@@ -795,23 +762,22 @@
         
         setInterval(typeReview, 3000);
 
-// Download functions for press kit
-document.getElementById('downloadPressPDF')?.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.open('resume.html', '_blank');
-    setTimeout(() => {
-        alert('On the resume page, click "Download PDF" to save your copy.');
-    }, 1000);
-});
+        // Download functions for press kit
+        document.getElementById('downloadPressPDF')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('resume.html', '_blank');
+            setTimeout(() => {
+                alert('On the resume page, click "Download PDF" to save your copy.');
+            }, 1000);
+        });
 
-document.getElementById('downloadPressHTML')?.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.open('resume.html', '_blank');
-    setTimeout(() => {
-        alert('On the resume page, click "Download Web Version" to save your copy.');
-    }, 1000);
-});
-
+        document.getElementById('downloadPressHTML')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('resume.html', '_blank');
+            setTimeout(() => {
+                alert('On the resume page, click "Download Web Version" to save your copy.');
+            }, 1000);
+        });
     </script>
 </body>
 </html>

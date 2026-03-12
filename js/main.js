@@ -88,9 +88,9 @@ function handleInitialLoad() {
 
 // Handle window resize
 function handleResize() {
-    // Close mobile menu if open
-    if (window.navigationManager && window.innerWidth > 1024) {
-        window.navigationManager.closeMobileMenu();
+    // Close mobile menu if open and on desktop
+    if (window.innerWidth > 768 && typeof window.closeMobileMenu === 'function') {
+        window.closeMobileMenu();
     }
     
     // Refresh any layout-dependent calculations

@@ -29,34 +29,12 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- CSS -->
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/pages/home.css">
     <link rel="stylesheet" href="css/pages/resume.css">
     
-    <style>
-        /* Quick fixes for mobile */
-        @media (max-width: 768px) {
-            .block-content {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-out;
-            }
-            
-            .block-content.show {
-                max-height: 600px;
-                overflow-y: auto;
-            }
-            
-            .block-title {
-                cursor: pointer;
-                -webkit-tap-highlight-color: transparent;
-            }
-            
-            .block-title:active {
-                opacity: 0.7;
-            }
-        }
-    </style>
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -67,45 +45,23 @@
             </a>
             
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">
-                    <span>Home</span>
-                </a>
-                <a href="origin.html" class="nav-link">
-                    <span>Origin</span>
-                </a>
-                <a href="arsenal.html" class="nav-link">
-                    <span>Arsenal</span>
-                </a>
-                <a href="workshop.html" class="nav-link">
-                    <span>Workshop</span>
-                </a>
-                <a href="vision.html" class="nav-link">
-                    <span>Vision</span>
-                </a>
-                <a href="connect.html" class="nav-link">
-                    <span>Connect</span>
-                </a>
-                <a href="resume.html" class="nav-link active">
-                    <span>Resume</span>
-                </a>
-
-                  </a>
-
-                   </a>
-                   <a href="services.html" class="nav-link">
-          
-                    <span>Pricing</span>
-                </a>
- 
+                <a href="index.html" class="nav-link"><span>Home</span></a>
+                <a href="origin.html" class="nav-link"><span>Origin</span></a>
+                <a href="arsenal.html" class="nav-link"><span>Arsenal</span></a>
+                <a href="workshop.html" class="nav-link"><span>Workshop</span></a>
+                <a href="vision.html" class="nav-link"><span>Vision</span></a>
+                <a href="connect.html" class="nav-link"><span>Connect</span></a>
+                <a href="resume.html" class="nav-link active"><span>Resume</span></a>
+                <a href="services.html" class="nav-link"><span>Pricing</span></a>
+                <a href="navigation.html" class="nav-link">Explore</a>
             </div>
             
             <div class="nav-actions">
-                <button class="menu-toggle" id="menuToggle">
+                <a href="navigation.html" class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
-                </button>
+                </a>
             </div>
         </div>
-        
         <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
 
@@ -121,16 +77,13 @@
                 </p>
                 <div class="header-actions">
                     <button class="btn btn-primary" id="downloadPDFBtn">
-                        <i class="fas fa-file-pdf"></i>
-                        Download PDF
+                        <i class="fas fa-file-pdf"></i> Download PDF
                     </button>
                     <button class="btn btn-outline" id="downloadHTMLBtn">
-                        <i class="fas fa-code"></i>
-                        Download Web Version
+                        <i class="fas fa-code"></i> Download Web Version
                     </button>
                     <button class="btn btn-outline" onclick="window.print()">
-                        <i class="fas fa-print"></i>
-                        Print
+                        <i class="fas fa-print"></i> Print
                     </button>
                 </div>
             </div>
@@ -164,11 +117,11 @@
 
                     <!-- Contact -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="contact">
                             <i class="fas fa-address-card"></i>
                             Contact
                         </h2>
-                        <div class="contact-list">
+                        <div class="contact-list block-content" id="contact">
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <span>Nairobi, Kenya</span>
@@ -198,24 +151,26 @@
 
                     <!-- Education -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="education">
                             <i class="fas fa-graduation-cap"></i>
                             Education
                         </h2>
-                        <div class="edu-item">
-                            <h3>B.Sc. Computer Science</h3>
-                            <p class="edu-meta">Kirinyaga University</p>
-                            <p class="edu-date">2023 - Present · Second Year</p>
+                        <div class="block-content" id="education">
+                            <div class="edu-item">
+                                <h3>B.Sc. Computer Science</h3>
+                                <p class="edu-meta">Kirinyaga University</p>
+                                <p class="edu-date">2023 - Present · Second Year</p>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Certifications -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="certifications">
                             <i class="fas fa-certificate"></i>
                             Certifications
                         </h2>
-                        <div class="cert-list">
+                        <div class="cert-list block-content" id="certifications">
                             <div class="cert-item">
                                 <i class="fas fa-shield-alt"></i>
                                 <span>Google Cybersecurity</span>
@@ -237,11 +192,11 @@
 
                     <!-- Skills Summary -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="skills-summary">
                             <i class="fas fa-cog"></i>
                             Top Skills
                         </h2>
-                        <div class="skills-mini">
+                        <div class="skills-mini block-content" id="skills-summary">
                             <span class="skill-mini">JavaScript/TS</span>
                             <span class="skill-mini">React</span>
                             <span class="skill-mini">Angular</span>
@@ -260,11 +215,11 @@
                 <div class="resume-right">
                     <!-- Summary -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="summary">
                             <i class="fas fa-user"></i>
                             Professional Summary
                         </h2>
-                        <div class="summary-text">
+                        <div class="summary-text block-content" id="summary">
                             <i class="fas fa-quote-left" style="color: var(--marubi-ember); opacity: 0.5; margin-right: 0.5rem;"></i>
                             A highly driven Full-Stack Developer and Cybersecurity Specialist with a strong passion for building secure, scalable, and impactful digital solutions. Currently advancing skills through real-world development and security projects, with a deep commitment to innovation, problem-solving, and continuous learning. Known for combining creativity, discipline, and technical expertise to deliver solutions that add real value to users and communities.
                         </div>
@@ -272,56 +227,56 @@
 
                     <!-- Experience -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="experience">
                             <i class="fas fa-briefcase"></i>
                             Professional Experience
                         </h2>
-                        
-                        <div class="exp-item">
-                            <div class="exp-header">
-                                <h3>Freelance Full-Stack Developer</h3>
-                                <span class="exp-date">2023 - Present</span>
+                        <div class="block-content" id="experience">
+                            <div class="exp-item">
+                                <div class="exp-header">
+                                    <h3>Freelance Full-Stack Developer</h3>
+                                    <span class="exp-date">2023 - Present</span>
+                                </div>
+                                <ul class="exp-list">
+                                    <li>Built ShortX E-commerce Platform with payments, admin dashboard, and inventory management.</li>
+                                    <li>Developed Vendor Shops Marketplace for local businesses.</li>
+                                    <li>Created Kyu Varsity Hub (Angular-based student platform).</li>
+                                </ul>
+                                <div class="exp-tech">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>MongoDB</span>
+                                    <span>Angular</span>
+                                </div>
                             </div>
-                            <ul class="exp-list">
-                                <li>Built ShortX E-commerce Platform with payments, admin dashboard, and inventory management.</li>
-                                <li>Developed Vendor Shops Marketplace for local businesses.</li>
-                                <li>Created Kyu Varsity Hub (Angular-based student platform).</li>
-                            </ul>
-                            <div class="exp-tech">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
-                                <span>Angular</span>
-                            </div>
-                        </div>
 
-                        <div class="exp-item">
-                            <div class="exp-header">
-                                <h3>Freelance Cybersecurity Pentester</h3>
-                                <span class="exp-date">2023 - Present</span>
-                            </div>
-                            <ul class="exp-list">
-                                <li>Conducted penetration tests and identified critical vulnerabilities.</li>
-                                <li>Built Python tools for automated security testing.</li>
-                                <li>Delivered remediation reports using Kali Linux, Metasploit, Burp Suite, Wireshark.</li>
-                            </ul>
-                            <div class="exp-tech">
-                                <span>Kali Linux</span>
-                                <span>Metasploit</span>
-                                <span>Burp Suite</span>
-                                <span>Python</span>
+                            <div class="exp-item">
+                                <div class="exp-header">
+                                    <h3>Freelance Cybersecurity Pentester</h3>
+                                    <span class="exp-date">2023 - Present</span>
+                                </div>
+                                <ul class="exp-list">
+                                    <li>Conducted penetration tests and identified critical vulnerabilities.</li>
+                                    <li>Built Python tools for automated security testing.</li>
+                                    <li>Delivered remediation reports using Kali Linux, Metasploit, Burp Suite, Wireshark.</li>
+                                </ul>
+                                <div class="exp-tech">
+                                    <span>Kali Linux</span>
+                                    <span>Metasploit</span>
+                                    <span>Burp Suite</span>
+                                    <span>Python</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Featured Projects -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="projects">
                             <i class="fas fa-rocket"></i>
                             Featured Projects
                         </h2>
-                        
-                        <div class="project-row">
+                        <div class="project-row block-content" id="projects">
                             <div class="project-mini-card">
                                 <h4>Mzuri Organics</h4>
                                 <p>Agricultural e-commerce platform</p>
@@ -347,12 +302,11 @@
 
                     <!-- Achievements -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="achievements">
                             <i class="fas fa-trophy"></i>
                             Achievements
                         </h2>
-                        
-                        <div class="achievement-list">
+                        <div class="achievement-list block-content" id="achievements">
                             <div class="achievement-item">
                                 <i class="fas fa-medal"></i>
                                 <div>
@@ -379,12 +333,11 @@
 
                     <!-- Skills Grid -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="skills">
                             <i class="fas fa-cogs"></i>
                             Technical Skills
                         </h2>
-                        
-                        <div class="skills-grid">
+                        <div class="skills-grid block-content" id="skills">
                             <div class="skill-category">
                                 <h4>Frontend</h4>
                                 <div class="skill-tags">
@@ -437,11 +390,11 @@
 
                     <!-- Languages -->
                     <div class="resume-block">
-                        <h2 class="block-title">
+                        <h2 class="block-title" data-target="languages">
                             <i class="fas fa-language"></i>
                             Languages
                         </h2>
-                        <div class="language-bars">
+                        <div class="language-bars block-content" id="languages">
                             <div class="lang-bar">
                                 <span>English</span>
                                 <div class="bar"><div class="fill" style="width: 100%"></div></div>
@@ -485,18 +438,10 @@
                     </a>
                     <p>Building Africa's digital future, one line of code at a time. Est. 2023</p>
                     <div class="social-links">
-                        <a href="https://github.com/Marubi23" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/felixmarubi" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://twitter.com/felixmarubi" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/marubi___/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="https://github.com/Marubi23" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/felixmarubi" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/felixmarubi" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/marubi___/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
@@ -541,85 +486,6 @@
     </button>
 
     <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/animations.js"></script>
-    
-    <!-- Mobile Dropdown Functionality -->
-    <script src="js/resume-mobile.js"></script>
-    
-    <script>
-        // Download PDF function
-        function downloadPDF() {
-            const element = document.getElementById('resume-content');
-            const opt = {
-                margin:        [0.5, 0.5, 0.5, 0.5],
-                filename:      'Felix_Onyancha_Resume.pdf',
-                image:         { type: 'jpeg', quality: 0.98 },
-                html2canvas:   { scale: 2, backgroundColor: '#1a1a1a' },
-                jsPDF:         { unit: 'in', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
-        
-        // Download HTML function
-        function downloadHTML() {
-            const content = document.getElementById('resume-content').outerHTML;
-            const styles = document.querySelector('link[href="css/pages/resume.css"]') ? 
-                          document.querySelector('link[href="css/pages/resume.css"]').outerHTML : '';
-            
-            const fullHTML = `<!DOCTYPE html>
-<html>
-<head>
-    <title>Felix Onyancha - Resume</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --marubi-ember: #cc2f01;
-            --marubi-onyx: #242323;
-            --marubi-ember-light: #e64d2e;
-            --marubi-cream: #f8f5f2;
-            --marubi-charcoal: #1a1a1a;
-            --space-md: 2rem;
-        }
-        body { 
-            background: #1a1a1a; 
-            padding: 1rem; 
-            margin: 0; 
-            font-family: 'Inter', sans-serif;
-            color: #f8f5f2;
-        }
-        .container { max-width: 1200px; margin: 0 auto; }
-        ${document.querySelector('link[href="css/pages/resume.css"]') ? 
-          '/* Styles from resume.css would be included here */' : ''}
-    </style>
-</head>
-<body>
-    <div class="container">
-        ${content}
-    </div>
-</body>
-</html>`;
-            
-            const blob = new Blob([fullHTML], { type: 'text/html' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'Felix_Onyancha_Resume.html';
-            a.click();
-            URL.revokeObjectURL(a.href);
-        }
-        
-        // Attach to buttons
-        document.getElementById('downloadPDFBtn')?.addEventListener('click', downloadPDF);
-        document.getElementById('downloadPDFBtn2')?.addEventListener('click', downloadPDF);
-        document.getElementById('downloadHTMLBtn')?.addEventListener('click', downloadHTML);
-        document.getElementById('downloadHTMLBtn2')?.addEventListener('click', downloadHTML);
-    </script>
+    <script src="js/resume.js"></script>
 </body>
 </html>

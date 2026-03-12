@@ -506,24 +506,18 @@
     justify-content: center;
 }
 
-/* ===== MOBILE DROPDOWN STYLES (≤768px) ===== */
+/* ===== MOBILE DROPDOWN STYLES ===== */
 @media (max-width: 768px) {
-    /* Container */
     .container {
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 0.75rem !important;
     }
 
-    /* Page Header - Simplified */
     .page-header {
         min-height: auto !important;
         padding: 70px 0 25px !important;
         text-align: center !important;
-    }
-
-    .header-content {
-        width: 100% !important;
     }
 
     .page-title {
@@ -531,16 +525,9 @@
         margin-bottom: 0.5rem !important;
     }
 
-    .page-title .ember::after {
-        height: 2px !important;
-        bottom: 0px !important;
-    }
-
     .page-subtitle {
         font-size: 0.9rem !important;
         margin-bottom: 1.25rem !important;
-        line-height: 1.5 !important;
-        padding: 0 0.5rem !important;
     }
 
     .header-actions {
@@ -550,13 +537,6 @@
         margin: 0 auto !important;
     }
 
-    .header-actions .btn {
-        width: 100% !important;
-        padding: 0.7rem !important;
-        font-size: 0.85rem !important;
-    }
-
-    /* Resume Container - Single Column */
     .resume-section {
         padding: 1.5rem 0 !important;
     }
@@ -565,13 +545,8 @@
         grid-template-columns: 1fr !important;
         gap: 0.75rem !important;
         padding: 0.75rem !important;
-        background: rgba(36, 35, 35, 0.4) !important;
-        backdrop-filter: blur(10px) !important;
-        border: 1px solid rgba(204, 47, 1, 0.2) !important;
-        border-radius: 12px !important;
     }
 
-    /* Left & Right Columns - Full Width */
     .resume-left,
     .resume-right {
         width: 100% !important;
@@ -585,47 +560,21 @@
         margin-bottom: 0.5rem !important;
     }
 
-    /* Profile Section - Always Visible */
-    .profile-card {
-        text-align: center !important;
-        margin-bottom: 0.75rem !important;
-    }
-
     .profile-image {
         width: 85px !important;
         height: 85px !important;
-        margin: 0 auto 0.5rem !important;
-        border-width: 2px !important;
-    }
-
-    .profile-name .first {
-        font-size: 0.7rem !important;
-        letter-spacing: 2px !important;
     }
 
     .profile-name .last {
         font-size: 1.3rem !important;
     }
 
-    .profile-title {
-        font-size: 0.65rem !important;
-        padding: 0.2rem 0.5rem !important;
-        margin-bottom: 0.4rem !important;
-    }
-
-    .profile-badge {
-        padding: 0.25rem 0.6rem !important;
-        font-size: 0.65rem !important;
-        gap: 0.25rem !important;
-    }
-
-    /* ===== DROPDOWN ACCORDION STYLES ===== */
+    /* Collapsible sections */
     .resume-block {
         margin-bottom: 0.5rem !important;
         border: 1px solid rgba(204, 47, 1, 0.15) !important;
         border-radius: 6px !important;
         overflow: hidden !important;
-        background: rgba(0, 0, 0, 0.2) !important;
     }
 
     .block-title {
@@ -636,51 +585,36 @@
         position: relative !important;
         background: rgba(204, 47, 1, 0.08) !important;
         border-bottom: 1px solid rgba(204, 47, 1, 0.15) !important;
-        transition: background 0.2s ease !important;
-        -webkit-tap-highlight-color: transparent !important;
     }
 
-    .block-title:active {
-        background: rgba(204, 47, 1, 0.15) !important;
-    }
-
-    .block-title i {
-        font-size: 0.8rem !important;
-        margin-right: 0.4rem !important;
-    }
-
-    /* Dropdown Arrow */
     .block-title::after {
-        content: '\f107' !important;
-        font-family: 'Font Awesome 6 Free' !important;
-        font-weight: 900 !important;
-        position: absolute !important;
-        right: 0.8rem !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        color: var(--marubi-ember) !important;
-        transition: transform 0.3s ease !important;
-        font-size: 1rem !important;
+        content: '\f107';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 0.8rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--marubi-ember);
+        transition: transform 0.3s ease;
     }
 
     .block-title.active::after {
-        transform: translateY(-50%) rotate(180deg) !important;
+        transform: translateY(-50%) rotate(180deg);
     }
 
-    /* Collapsible Content */
     .block-content {
-        max-height: 0 !important;
-        overflow: hidden !important;
-        transition: max-height 0.4s ease-out !important;
-        background: rgba(0, 0, 0, 0.15) !important;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        background: rgba(0, 0, 0, 0.15);
     }
 
     .block-content.show {
-        max-height: 600px !important;
-        overflow-y: auto !important;
+        max-height: 600px;
+        overflow-y: auto;
     }
 
-    /* Content Padding - All elements inside get consistent padding */
     .contact-list,
     .cert-list,
     .skills-mini,
@@ -695,225 +629,9 @@
         margin: 0 !important;
     }
 
-    /* Contact Items */
-    .contact-item {
-        font-size: 0.8rem !important;
-        margin-bottom: 0.6rem !important;
-        word-break: break-word !important;
-        gap: 0.6rem !important;
-    }
-
-    .contact-item i {
-        width: 18px !important;
-        font-size: 0.8rem !important;
-    }
-
-    .contact-item:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    /* Education */
-    .edu-item {
-        background: rgba(0, 0, 0, 0.1) !important;
-    }
-
-    .edu-item h3 {
-        font-size: 0.9rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-
-    .edu-meta {
-        font-size: 0.75rem !important;
-    }
-
-    .edu-date {
-        font-size: 0.7rem !important;
-    }
-
-    /* Certifications */
-    .cert-item {
-        font-size: 0.8rem !important;
-        margin-bottom: 0.4rem !important;
-        gap: 0.5rem !important;
-    }
-
-    .cert-item i {
-        width: 16px !important;
-        font-size: 0.75rem !important;
-    }
-
-    .cert-item:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    /* Skills Mini */
-    .skills-mini {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 0.3rem !important;
-    }
-
-    .skill-mini {
-        padding: 0.15rem 0.5rem !important;
-        font-size: 0.65rem !important;
-    }
-
-    /* Summary */
-    .summary-text {
-        font-size: 0.8rem !important;
-        line-height: 1.5 !important;
-        border-left-width: 2px !important;
-    }
-
-    .summary-text i {
-        font-size: 0.7rem !important;
-    }
-
-    /* Experience */
-    .exp-item {
-        margin-bottom: 0.75rem !important;
-        padding: 0 0 0.75rem 0 !important;
-        border-left: none !important;
-    }
-
-    .exp-item:last-child {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-
-    .exp-header {
-        margin-bottom: 0.4rem !important;
-    }
-
-    .exp-header h3 {
-        font-size: 0.85rem !important;
-    }
-
-    .exp-date {
-        font-size: 0.65rem !important;
-        margin-top: 0.1rem !important;
-    }
-
-    .exp-list {
-        margin-left: 0.75rem !important;
-        font-size: 0.75rem !important;
-        line-height: 1.4 !important;
-        margin-bottom: 0.4rem !important;
-    }
-
-    .exp-list li {
-        margin-bottom: 0.2rem !important;
-    }
-
-    .exp-tech {
-        margin-top: 0.4rem !important;
-        gap: 0.3rem !important;
-    }
-
-    .exp-tech span {
-        padding: 0.1rem 0.4rem !important;
-        font-size: 0.55rem !important;
-    }
-
-    /* Projects */
     .project-row {
         grid-template-columns: 1fr !important;
         gap: 0.4rem !important;
-    }
-
-    .project-mini-card {
-        padding: 0.5rem !important;
-    }
-
-    .project-mini-card h4 {
-        font-size: 0.8rem !important;
-        margin-bottom: 0.15rem !important;
-    }
-
-    .project-mini-card p {
-        font-size: 0.7rem !important;
-        margin-bottom: 0.2rem !important;
-    }
-
-    .project-status {
-        font-size: 0.55rem !important;
-        padding: 0.1rem 0.3rem !important;
-    }
-
-    /* Achievements */
-    .achievement-item {
-        padding: 0.5rem !important;
-        gap: 0.5rem !important;
-        margin-bottom: 0.4rem !important;
-    }
-
-    .achievement-item:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    .achievement-item i {
-        font-size: 0.8rem !important;
-        margin-top: 0.1rem !important;
-    }
-
-    .achievement-item h4 {
-        font-size: 0.8rem !important;
-        margin-bottom: 0.1rem !important;
-    }
-
-    .achievement-item p {
-        font-size: 0.7rem !important;
-        line-height: 1.3 !important;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-        gap: 0.75rem !important;
-    }
-
-    .skill-category h4 {
-        font-size: 0.8rem !important;
-        margin-bottom: 0.4rem !important;
-    }
-
-    .skill-tags {
-        gap: 0.3rem !important;
-    }
-
-    .skill-tag {
-        padding: 0.2rem 0.5rem !important;
-        font-size: 0.65rem !important;
-    }
-
-    /* Languages */
-    .language-bars {
-        gap: 0.5rem !important;
-    }
-
-    .lang-bar {
-        gap: 0.2rem !important;
-        flex-direction: row !important;
-        align-items: center !important;
-    }
-
-    .lang-bar span {
-        font-size: 0.75rem !important;
-        width: 60px !important;
-    }
-
-    .bar {
-        height: 4px !important;
-        flex: 1 !important;
-    }
-
-    /* Footer */
-    .resume-footer-actions {
-        margin-top: 1.5rem !important;
-        padding: 0 !important;
-    }
-
-    .ref-note {
-        font-size: 0.6rem !important;
     }
 
     .footer-buttons {
@@ -925,110 +643,10 @@
 
     .footer-buttons .btn {
         width: 100% !important;
-        padding: 0.7rem !important;
-        font-size: 0.8rem !important;
     }
 
-    /* Hide scroll indicator on mobile */
     .scroll-indicator {
         display: none !important;
-    }
-}
-
-/* Small mobile devices (380px and below) */
-@media (max-width: 380px) {
-    .container {
-        padding: 0 0.5rem !important;
-    }
-
-    .page-title {
-        font-size: 1.6rem !important;
-    }
-
-    .page-subtitle {
-        font-size: 0.8rem !important;
-    }
-
-    .profile-image {
-        width: 70px !important;
-        height: 70px !important;
-    }
-
-    .profile-name .last {
-        font-size: 1.2rem !important;
-    }
-
-    .block-title {
-        font-size: 0.85rem !important;
-        padding: 0.7rem !important;
-    }
-
-    .block-title i {
-        font-size: 0.75rem !important;
-    }
-
-    .contact-item,
-    .cert-item,
-    .exp-list,
-    .achievement-item p,
-    .project-mini-card p {
-        font-size: 0.7rem !important;
-    }
-
-    .skill-mini,
-    .skill-tag {
-        font-size: 0.6rem !important;
-    }
-
-    .lang-bar span {
-        font-size: 0.7rem !important;
-        width: 50px !important;
-    }
-
-    .footer-buttons {
-        max-width: 200px !important;
-    }
-}
-
-/* Touch-friendly improvements */
-@media (max-width: 768px) {
-    /* Remove hover effects */
-    .project-mini-card:hover,
-    .skill-tag:hover,
-    .btn:hover,
-    .contact-item a:hover {
-        transform: none !important;
-        background: none !important;
-    }
-
-    /* Active states */
-    .block-title:active,
-    .btn:active,
-    .project-mini-card:active {
-        opacity: 0.7 !important;
-        transform: scale(0.98) !important;
-    }
-
-    /* Better touch targets */
-    .block-title,
-    .btn,
-    .contact-item a {
-        min-height: 44px !important;
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    .contact-item {
-        min-height: 40px !important;
-    }
-}
-
-/* Tablet adjustments */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .resume-container {
-        grid-template-columns: 280px 1fr !important;
-        gap: 1.5rem !important;
-        padding: 1.5rem !important;
     }
 }
 

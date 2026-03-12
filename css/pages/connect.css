@@ -760,6 +760,7 @@
     opacity: 0;
 }
 
+
 [data-animate="slide-right"] {
     transform: translateX(50px);
     opacity: 0;
@@ -781,3 +782,4 @@
 [data-delay="200"] { transition-delay: 0.2s; }
 [data-delay="300"] { transition-delay: 0.3s; }
 [data-delay="400"] { transition-delay: 0.4s; }
+
