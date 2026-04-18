@@ -1,10 +1,62 @@
-/* ============================================
-   WORKSHOP PAGE STYLES
-   Projects & Builds
-   ============================================ */
+/* ===== NAVBAR - TRANSPARENT ALWAYS ===== */
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 1.2rem 2rem !important;
+    z-index: 1000 !important;
+    transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
 
+/* Hide navbar when scrolling down */
+.navbar.hide {
+    transform: translateY(-100%) !important;
+}
 
-/* ===== PAGE HEADER WITH YOUR IMAGE ===== */
+/* Scrolled state - STAYS TRANSPARENT */
+.navbar.scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0.8rem 2rem !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* When navbar is hidden AND scrolled */
+.navbar.hide.scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+/* Nav links on transparent navbar - keep readable */
+.navbar:not(.scrolled) .nav-link,
+.navbar.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar:not(.scrolled) .nav-link:hover,
+.navbar.scrolled .nav-link:hover {
+    color: white !important;
+    background: rgba(204, 47, 1, 0.15) !important;
+}
+
+.navbar:not(.scrolled) .nav-link.active,
+.navbar.scrolled .nav-link.active {
+    color: var(--marubi-ember) !important;
+    background: rgba(204, 47, 1, 0.15) !important;
+    border: 1px solid rgba(204, 47, 1, 0.4) !important;
+}
+
+/* Logo text on transparent navbar */
+.navbar:not(.scrolled) .logo-text,
+.navbar.scrolled .logo-text {
+    -webkit-text-fill-color: white !important;
+    background: none !important;
+    color: white !important;
+}
 .page-header {
     min-height: 55vh;
     display: flex;

@@ -18,7 +18,7 @@
 
 /* Scrolled state - solid background */
 .navbar.scrolled {
-    background: rgba(36, 35, 35, 0.9);
+    background: transparent;
     backdrop-filter: blur(10px);
     padding: 0.8rem 2rem;
     border-bottom: 1px solid rgba(204, 47, 1, 0.2);
@@ -27,7 +27,7 @@
 
 /* When navbar is hidden AND scrolled */
 .navbar.hide.scrolled {
-    background: rgba(36, 35, 35, 0.9);
+    background:transparent;
     backdrop-filter: blur(10px);
 }
 

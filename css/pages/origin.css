@@ -1,26 +1,79 @@
-/* ============================================
-   ORIGIN PAGE STYLES
-   The Journey from Nairobi
-   ============================================ */
+/* ===== NAVBAR - TRANSPARENT ALWAYS ===== */
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 1.2rem 2rem !important;
+    z-index: 1000 !important;
+    transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
 
-/* ===== PAGE HEADER WITH BACKGROUND IMAGE ===== */
+/* Hide navbar when scrolling down */
+.navbar.hide {
+    transform: translateY(-100%) !important;
+}
+
+/* Scrolled state - STAYS TRANSPARENT */
+.navbar.scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0.8rem 2rem !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* When navbar is hidden AND scrolled */
+.navbar.hide.scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+/* Nav links on transparent navbar - keep readable */
+.navbar:not(.scrolled) .nav-link,
+.navbar.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar:not(.scrolled) .nav-link:hover,
+.navbar.scrolled .nav-link:hover {
+    color: white !important;
+    background: rgba(204, 47, 1, 0.15) !important;
+}
+
+.navbar:not(.scrolled) .nav-link.active,
+.navbar.scrolled .nav-link.active {
+    color: var(--marubi-ember) !important;
+    background: rgba(204, 47, 1, 0.15) !important;
+    border: 1px solid rgba(204, 47, 1, 0.4) !important;
+}
+
+/* Logo text on transparent navbar */
+.navbar:not(.scrolled) .logo-text,
+.navbar.scrolled .logo-text {
+    -webkit-text-fill-color: white !important;
+    background: none !important;
+    color: white !important;
+}
 .page-header {
     min-height: 55vh;
     display: flex;
     align-items: flex-end;
     position: relative;
     padding: 8rem 0 5rem;
-    background: linear-gradient(0deg, var(--marubi-charcoal) 0%, rgba(36, 35, 35, 0.85) 100%), 
+    background: linear-gradient(0deg, var(--marubi-charcoal) 0%, rgba(36, 35, 35, 0.4) 100%), 
                 url('/images/gallery/nairobi-skyline.JPG');
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* parallax effect */
+    background-attachment: fixed;
     overflow: hidden;
-    border-bottom: 1px solid rgba(45, 39, 37, 0.2);
+    border-bottom: 1px solid rgba(204, 47, 1, 0.2);
 }
 
-/* Darker overlay gradient for text readability */
+/* Lighter overlay for better image visibility */
 .page-header::before {
     content: '';
     position: absolute;
@@ -29,13 +82,12 @@
     right: 0;
     bottom: 0;
     background: 
-        linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(36, 35, 35, 0.5) 100%),
-        radial-gradient(circle at 20% 30%, rgba(204, 47, 1, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(204, 47, 1, 0.08) 0%, transparent 50%);
+        linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(36, 35, 35, 0.2) 100%),
+        radial-gradient(circle at 20% 30%, rgba(204, 47, 1, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(204, 47, 1, 0.1) 0%, transparent 50%);
     pointer-events: none;
     z-index: 1;
 }
-
 /* Content stays above overlay */
 .page-header .container,
 .page-header .header-content {

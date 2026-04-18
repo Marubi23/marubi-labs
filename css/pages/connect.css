@@ -1,57 +1,62 @@
 /* ===== NAVBAR - Same behavior as resume page ===== */
+/* ===== NAVBAR - TRANSPARENT ALWAYS ===== */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.2rem 2rem;
-    z-index: 1000;
-    transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease;
-    background: transparent;
-    backdrop-filter: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 1.2rem 2rem !important;
+    z-index: 1000 !important;
+    transition: transform 0.3s ease, background 0.3s ease, padding 0.3s ease !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
 }
 
 /* Hide navbar when scrolling down */
 .navbar.hide {
-    transform: translateY(-100%);
+    transform: translateY(-100%) !important;
 }
 
-/* Scrolled state - solid background */
+/* Scrolled state - STAYS TRANSPARENT */
 .navbar.scrolled {
-    background: rgba(36, 35, 35, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 0.8rem 2rem;
-    border-bottom: 1px solid rgba(204, 47, 1, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0.8rem 2rem !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 /* When navbar is hidden AND scrolled */
 .navbar.hide.scrolled {
-    background: rgba(36, 35, 35, 0.9);
-    backdrop-filter: blur(10px);
+    background: transparent !important;
+    backdrop-filter: none !important;
 }
 
-/* Ensure nav links are visible on transparent navbar */
-.navbar:not(.scrolled) .nav-link {
-    color: rgba(255, 255, 255, 0.9);
+/* Nav links on transparent navbar - keep readable */
+.navbar:not(.scrolled) .nav-link,
+.navbar.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
-.navbar:not(.scrolled) .nav-link:hover {
-    color: white;
-    background: rgba(204, 47, 1, 0.15);
+.navbar:not(.scrolled) .nav-link:hover,
+.navbar.scrolled .nav-link:hover {
+    color: white !important;
+    background: rgba(204, 47, 1, 0.15) !important;
 }
 
-.navbar:not(.scrolled) .nav-link.active {
-    color: var(--marubi-ember);
-    background: rgba(204, 47, 1, 0.15);
-    border: 1px solid rgba(204, 47, 1, 0.4);
+.navbar:not(.scrolled) .nav-link.active,
+.navbar.scrolled .nav-link.active {
+    color: var(--marubi-ember) !important;
+    background: rgba(204, 47, 1, 0.15) !important;
+    border: 1px solid rgba(204, 47, 1, 0.4) !important;
 }
 
 /* Logo text on transparent navbar */
-.navbar:not(.scrolled) .logo-text {
-    -webkit-text-fill-color: white;
-    background: none;
-    color: white;
+.navbar:not(.scrolled) .logo-text,
+.navbar.scrolled .logo-text {
+    -webkit-text-fill-color: white !important;
+    background: none !important;
+    color: white !important;
 }
 
 /* Mobile menu adjustments */
@@ -66,6 +71,7 @@
         background: rgba(36, 35, 35, 0.95);
     }
 }
+
 .page-header {
     min-height: 55vh;
     display: flex;
@@ -885,4 +891,3 @@
 [data-delay="200"] { transition-delay: 0.2s; }
 [data-delay="300"] { transition-delay: 0.3s; }
 [data-delay="400"] { transition-delay: 0.4s; }
-
