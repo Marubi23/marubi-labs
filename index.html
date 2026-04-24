@@ -44,14 +44,101 @@
         :root {
             --marubi-ember: #cc2f01;
             --marubi-onyx: #242323;
+            --marubi-cream: #f5f0e8;
         }
         
+        /* ============================================
+           HERO SECTION WITH GIF BACKGROUND
+           ============================================ */
+        
+        /* Hero Section - GIF Background */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: var(--space-2xl, 100px) 0;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        
+        /* GIF Background Layer */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .hero-background-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        
+        }
+        
+        /* Dark Overlay for better text readability */
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            pointer-events: none;
+        }
+        
+        /* Gradient overlay for smoother blend */
+        .hero-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle at 30% 50%,
+                rgba(36, 35, 35, 0.6) 0%,
+                rgba(0, 0, 0, 0.85) 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Hero Content - Ensure text is above background */
+        .hero .container {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Optional: Subtle animation on the background */
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .hero-background-img {
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
         
         /* Hero Content Layout - Terminal Left, Text Right */
         .hero-content {
             display: grid;
             grid-template-columns: 0.8fr 1.2fr;
-            gap: var(--space-lg);
+            gap: var(--space-lg, 2rem);
             align-items: start;
             position: relative;
             z-index: 10;
@@ -61,8 +148,8 @@
         .terminal-column {
             display: flex;
             flex-direction: column;
-            gap: var(--space-md);
-            padding-top: 100px; /* Align with hero text */
+            gap: var(--space-md, 1.5rem);
+            padding-top: 100px;
         }
         
         /* Live Reviews - Adjusted for left column */
@@ -74,8 +161,60 @@
             width: 100%;
             max-width: 400px;
             overflow: hidden;
-            box-shadow: var(--shadow-onyx);
             margin: 0;
+        }
+        
+        .terminal-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(204, 47, 1, 0.2);
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+        
+        .terminal-title {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .terminal-body {
+            padding: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--marubi-cream);
+        }
+        
+        .prompt {
+            color: var(--marubi-ember);
+            margin-right: 8px;
+        }
+        
+        .cursor {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .rating-stars {
+            color: #ffbd2e;
+            margin-left: 12px;
+            font-size: 0.7rem;
         }
         
         /* Additional Terminal Info */
@@ -84,7 +223,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(204, 47, 1, 0.2);
             border-radius: 8px;
-            padding: var(--space-md);
+            padding: var(--space-md, 1.5rem);
             max-width: 400px;
             font-family: 'JetBrains Mono', monospace;
         }
@@ -92,7 +231,7 @@
         .terminal-info-item {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: var(--space-sm, 0.75rem);
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(204, 47, 1, 0.1);
         }
@@ -116,10 +255,9 @@
         .hero-text-column {
             display: flex;
             flex-direction: column;
-            gap: var(--space-md);
+            gap: var(--space-md, 1.5rem);
         }
         
-        /* Hero Text adjustments */
         .hero-text {
             position: relative;
         }
@@ -140,7 +278,7 @@
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-md, 1.5rem);
         }
         
         .hero-title .greeting {
@@ -150,10 +288,11 @@
             margin-bottom: 0.5rem;
             letter-spacing: 4px;
             text-transform: uppercase;
+            display: block;
         }
         
         .hero-title .name {
-            background: var(--gradient-ember);
+            background: linear-gradient(135deg, var(--marubi-ember), #ff6b35);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: clamp(3.5rem, 10vw, 7rem);
@@ -161,34 +300,21 @@
             display: inline-block;
         }
         
-        .hero-title .name::after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-ember);
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: slideIn 1s ease 1s forwards;
-        }
-        
         .hero-subtitle {
             font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: 400;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-md, 1.5rem);
             line-height: 1.6;
             max-width: 600px;
             border-left: 4px solid var(--marubi-ember);
-            padding-left: var(--space-md);
+            padding-left: var(--space-md, 1.5rem);
         }
         
         .hero-description {
             font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.6);
-            margin-bottom: var(--space-lg);
+            margin-bottom: var(--space-lg, 2rem);
             line-height: 1.8;
             max-width: 500px;
         }
@@ -196,9 +322,9 @@
         /* Stats adjustment */
         .hero-stats {
             display: flex;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-lg);
-            padding: var(--space-md);
+            gap: var(--space-lg, 2rem);
+            margin-bottom: var(--space-lg, 2rem);
+            padding: var(--space-md, 1.5rem);
             background: rgba(36, 35, 35, 0.3);
             backdrop-filter: blur(10px);
             border-radius: 16px;
@@ -206,18 +332,132 @@
             max-width: fit-content;
         }
         
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--marubi-ember);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Hero Image */
+        .hero-image {
+            grid-column: 2;
+            margin-top: var(--space-lg, 2rem);
+        }
+        
+        .profile-frame {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .profile-img {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid var(--marubi-ember);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .founder-badge {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background: var(--marubi-ember);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--marubi-ember);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #b82800;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--marubi-ember);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: var(--marubi-ember);
+            transform: translateY(-2px);
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            z-index: 10;
+        }
+        
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
         /* Responsive */
         @media (max-width: 1200px) {
             .hero-content {
                 grid-template-columns: 0.9fr 1.1fr;
-                gap: var(--space-md);
+                gap: var(--space-md, 1.5rem);
             }
         }
         
         @media (max-width: 992px) {
             .hero-content {
                 grid-template-columns: 1fr;
-                gap: var(--space-lg);
+                gap: var(--space-lg, 2rem);
             }
             
             .terminal-column {
@@ -233,7 +473,7 @@
             .hero-subtitle {
                 border-left: none;
                 border-top: 4px solid var(--marubi-ember);
-                padding-top: var(--space-md);
+                padding-top: var(--space-md, 1.5rem);
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -250,6 +490,22 @@
             
             .hero-buttons {
                 justify-content: center;
+            }
+            
+            .hero-image {
+                grid-column: 1;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -286,8 +542,38 @@
         <div class="scroll-progress" id="scrollProgress"></div>
     </nav>
 
-    <!-- Hero Section - The Statement -->
+    <!-- Hero Section - The Statement with GIF Background -->
     <section class="hero">
+        <!-- ============================================ -->
+        <!-- GIF BACKGROUND - PUT YOUR GIF HERE -->
+        <!-- ============================================ -->
+        <div class="hero-background">
+            <!-- 
+                🔥 PLACE YOUR GIF FILE HERE 🔥
+                
+                OPTION 1: Use a local GIF file:
+                - Place your GIF in: images/backgrounds/hero-bg.gif
+                - Then uncomment the line below and comment out the URL line
+            -->
+            <img 
+                src="images/gallery/VirtuaVerse_ Cyberpunk and Pixels.gif" 
+                alt="Background animation" 
+                class="hero-background-img"
+                loading="lazy"
+            >
+            
+            <!-- OPTION 2: Use a URL GIF (uncomment to use, comment the local one above) -->
+            <!-- <img 
+                src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3I4cHo4dHV0aXU5bnFvdW1qNng0dXQ4cHp5NnNldG5qN2R5eGg1byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BRv0ThflFHCv4/260x260.gif" 
+                alt="Background animation" 
+                class="hero-background-img"
+                loading="lazy"
+            > -->
+        </div>
+        
+        <!-- Gradient Overlay for better text contrast -->
+        <div class="hero-gradient-overlay"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <!-- LEFT COLUMN - Terminal -->
@@ -374,8 +660,8 @@
                     </div>
                 </div>
                 
-                <!-- Hero Image (moved to right side) -->
-                <div class="hero-image animate-float" style="grid-column: 2; margin-top: var(--space-lg);">
+                <!-- Hero Image -->
+                <div class="hero-image animate-float">
                     <div class="profile-frame">
                         <img src="images/profile/profile.jpg" alt="Felix Marubi - CEO" class="profile-img">
                         <div class="founder-badge">
@@ -466,7 +752,7 @@
                     <div class="project-content">
                         <span class="company">mind-bridge.co.ke</span>
                         <h3>Mindbridge</h3>
-                        <p>Mental health support platform connecting Kenyan children  with professional counselors. Built with privacy and accessibility at its core.</p>
+                        <p>Mental health support platform connecting Kenyan children with professional counselors. Built with privacy and accessibility at its core.</p>
                         <div class="project-tech">
                             <span>Vue.js</span>
                             <span>Firebase</span>
@@ -588,7 +874,7 @@
                         <i class="fas fa-envelope"></i>
                         Start a Conversation
                     </a>
-                       <button class="btn btn-primary" id="downloadPDFBtn2">
+                    <button class="btn btn-primary" id="downloadPDFBtn2">
                         <i class="fas fa-file-pdf"></i> Download PDF
                     </button>
                 </div>
@@ -741,7 +1027,6 @@
     <script src="js/animations.js"></script>
     <script src="js/resume.js"></script>
     <script>
-
         // Terminal typing effect
         const reviews = [
             "Building Mindbridge for mental health",
@@ -753,12 +1038,14 @@
         const typingElement = document.getElementById('typingReview');
         
         function typeReview() {
-            typingElement.style.opacity = '0';
-            setTimeout(() => {
-                typingElement.textContent = reviews[index];
-                typingElement.style.opacity = '1';
-                index = (index + 1) % reviews.length;
-            }, 500);
+            if (typingElement) {
+                typingElement.style.opacity = '0';
+                setTimeout(() => {
+                    typingElement.textContent = reviews[index];
+                    typingElement.style.opacity = '1';
+                    index = (index + 1) % reviews.length;
+                }, 500);
+            }
         }
         
         setInterval(typeReview, 3000);
