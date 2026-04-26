@@ -21,6 +21,160 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('✅ marubyte portfolio ready!');
 });
 
+// ============================================
+// NAVBAR HIDE ON SCROLL FUNCTIONALITY
+// ============================================
+
+class NavbarScrollManager {
+    constructor() {
+        this.navbar = document.querySelector('.navbar');
+        this.lastScrollTop = 0;
+        this.scrollThreshold = 100;
+        this.ticking = false;
+        
+        if (this.navbar) {
+            this.init();
+        }
+    }
+    
+    init() {
+        this.handleScroll = this.handleScroll.bind(this);
+        window.addEventListener('scroll', () => {
+            if (!this.ticking) {
+                requestAnimationFrame(() => this.handleScroll());
+                this.ticking = true;
+            }
+        });
+        
+        // Initial check
+        this.handleScroll();
+    }
+    
+    handleScroll() {
+        if (!this.navbar) {
+            this.ticking = false;
+            return;
+        }
+        
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Hide navbar when scrolling down past threshold
+        if (scrollTop > this.lastScrollTop && scrollTop > this.scrollThreshold) {
+            this.navbar.classList.add('hide');
+        } 
+        // Show navbar when scrolling up or at top
+        else if (scrollTop < this.lastScrollTop || scrollTop <= this.scrollThreshold) {
+            this.navbar.classList.remove('hide');
+        }
+        
+        // Add scrolled class for styling when scrolled past 50px
+        if (scrollTop > 50) {
+            this.navbar.classList.add('scrolled');
+        } else {
+            this.navbar.classList.remove('scrolled');
+        }
+        
+        this.lastScrollTop = scrollTop;
+        this.ticking = false;
+    }
+}
+
+// ============================================
+// MOBILE MENU HANDLER
+// ============================================
+
+class MobileMenuManager {
+    constructor() {
+        this.menuToggle = document.querySelector('.menu-toggle');
+        this.navMenu = document.querySelector('.nav-menu');
+        this.navLinks = document.querySelectorAll('.nav-link');
+        this.isOpen = false;
+        
+        if (this.menuToggle && this.navMenu) {
+            this.init();
+        }
+    }
+    
+    init() {
+        // Create close button for mobile
+        this.createCloseButton();
+        
+        // Toggle menu on click
+        this.menuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.toggleMenu();
+        });
+        
+        // Close menu when clicking a link
+        this.navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.closeMenu();
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (this.isOpen && 
+                !this.navMenu.contains(e.target) && 
+                !this.menuToggle.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && this.isOpen) {
+                this.closeMenu();
+            }
+        });
+    }
+    
+    createCloseButton() {
+        // Add close button to mobile menu if not exists
+        if (!document.querySelector('.nav-menu-close')) {
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'nav-menu-close';
+            closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            closeBtn.addEventListener('click', () => this.closeMenu());
+            this.navMenu.insertBefore(closeBtn, this.navMenu.firstChild);
+        }
+    }
+    
+    toggleMenu() {
+        if (this.isOpen) {
+            this.closeMenu();
+        } else {
+            this.openMenu();
+        }
+    }
+    
+    openMenu() {
+        this.navMenu.classList.add('active');
+        this.isOpen = true;
+        document.body.style.overflow = 'hidden';
+        
+        // Change toggle icon
+        const icon = this.menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        }
+    }
+    
+    closeMenu() {
+        this.navMenu.classList.remove('active');
+        this.isOpen = false;
+        document.body.style.overflow = '';
+        
+        // Change toggle icon back
+        const icon = this.menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+}
+
 // Initialize all managers
 function initializeManagers() {
     // Order matters - dependencies should load later
@@ -43,6 +197,12 @@ function initializeManagers() {
     if (typeof ContactManager !== 'undefined') {
         window.contactManager = new ContactManager();
     }
+    
+    // Navbar scroll hide manager
+    window.navbarScrollManager = new NavbarScrollManager();
+    
+    // Mobile menu manager
+    window.mobileMenuManager = new MobileMenuManager();
 }
 
 // Setup global event listeners
@@ -89,8 +249,8 @@ function handleInitialLoad() {
 // Handle window resize
 function handleResize() {
     // Close mobile menu if open and on desktop
-    if (window.innerWidth > 768 && typeof window.closeMobileMenu === 'function') {
-        window.closeMobileMenu();
+    if (window.innerWidth > 768 && window.mobileMenuManager) {
+        window.mobileMenuManager.closeMenu();
     }
     
     // Refresh any layout-dependent calculations
@@ -264,6 +424,8 @@ if (typeof module !== 'undefined' && module.exports) {
         initializeManagers,
         setupGlobalEvents,
         handleInitialLoad,
-        showNotification
+        showNotification,
+        NavbarScrollManager,
+        MobileMenuManager
     };
 }
